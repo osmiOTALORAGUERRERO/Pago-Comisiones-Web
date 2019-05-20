@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="vendedorHome.php">Yo</a>
+        <a class="navbar-brand" href="sellerHome.php">Yo</a>
 
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
@@ -17,10 +17,10 @@
               <a class="nav-item nav-link active text-dark" href="#">Registrar Cliente <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="realizarVenta.php">Realizar venta</a>
+              <a class="nav-item nav-link" href="makeSale.php">Realizar venta</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="notificaciones.php">Notificaciones</a>
+              <a class="nav-item nav-link" href="notifications.php">Notificaciones</a>
             </li>
           </ul>
         </div>
