@@ -35,20 +35,44 @@
 
     public function executeQuery($sql='', $values=array())
     {
-      // code...
+      if($sql != ''){
+        $statement = $this->connect() -> prepare($sql);
+        $statement -> execute($values);
+        $result = $statement -> fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+      }else{
+        return null;
+      }
     }
 
     public function executeInsert($sql='', $values=array())
     {
-      // code...
+      if($sql != ''){
+        $statement = $this->connect() -> prepare($sql);
+        $statement -> execute($values);
+        $result = ($statement->rowCount() > 0);
+      }
     }
     public function executeUpdate($sql='', $values=array())
     {
-      // code...
+      if($sql != ''){
+        $statement = $this->connect() -> prepare($sql);
+        $statement -> execute($values);
+        $result = $statement->rowCount();
+        return $result;
+      }else {
+        return 0;
+      }
     }
     public function executeDelete($sql='', $values=array())
     {
-      // code...
+      if($sql != ''){
+        $statement = $this->connect() -> prepare($sql);
+        $statement -> execute($values);
+        return true;
+      }else {
+        return false;
+      }
     }
   }
 ?>
