@@ -1,12 +1,17 @@
 <?php
-session_start();
+  session_start();
+  include_once '../model/DAO/Manager.php';
+  include_once '../model/transferObject/Manager.php';
 
-$actor;
-if (condition) {
-  // code...
-} else {
-  // code...
-}
+  $actor;
+  if (isset($_SESSION['emailManager'])) {
+    header('location: ../coordinator/home.php');
+  } else {
+    $actor = 'Gerente';
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // code...
+    }
+  }
 
-require_once '../../view/session/login.php';
+  require_once '../../view/session/login.php';
 ?>

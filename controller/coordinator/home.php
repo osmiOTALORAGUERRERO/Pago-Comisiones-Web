@@ -8,5 +8,5 @@
     header('location: ../../index.php');
   }
 
-  require_once '../../view/coordinator/sellersLocation.php';
+  require_once '../../view/coordinator/coordinatorHome.php';
 ?>
