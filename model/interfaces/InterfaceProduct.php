@@ -4,7 +4,9 @@
    */
   interface InterfaceProduct
   {
-    // code...
+    public function selectProducts();
+    public function insertProduct($product);
+    
   }
 
 ?>

@@ -4,7 +4,9 @@
    */
   interface InterfaceCompany
   {
-    // code...
+    public function insertSeller($seller);
+    public function insertCoordinator($coordinator);
+    public function insertSeason($season);
   }
 
 ?>

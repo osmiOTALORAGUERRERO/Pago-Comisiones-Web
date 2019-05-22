@@ -8,9 +8,36 @@
   class SellerDAO implements InterfaceSeller
   {
 
-    function __construct()
+    function __construct(){}
+
+    public function insertSeller($seller, $password)
     {
-      // code...
+      $dataBase = new DataBaseConection();
+      $sql = 'INSERT INTO Sellers (id_seller, name, email, contact_number, ext, functions, password, id_coordinator, id_recruitment) VALUES
+        (NULL, :name, :email, :contactNumber, :ext, :functions, :password, NULL, :recruitment)';
+
+      $result = $dataBase -> executeInsert($sql, array(
+        ':name'=>$seller->getName(),
+        ':email'=>$seller->getEmail(),
+        ':contactNumber'=>$seller->getContactNumber(),
+        ':ext'=>5,
+        ':functions'=>$seller->getFunctions(),
+        ':password'=>$password,
+        ':recruitment'=>$seller->getRecruitment()
+      ));
+      return $result;
+    }
+    public function selectSellerByEmail($email)
+    {
+
+    }
+    public function selectSellersByCoordinator($idCoordinator)
+    {
+
+    }
+    public function selectSellers()
+    {
+
     }
   }
 

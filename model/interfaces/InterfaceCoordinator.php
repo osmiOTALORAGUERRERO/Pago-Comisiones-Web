@@ -4,7 +4,8 @@
    */
   interface InterfaceCoordinator
   {
-    // code...
+    public function selectCoordinators();
+    public function selectCoordinatorBySeller($idSeller);
   }
 
 ?>

@@ -4,7 +4,7 @@
    */
   interface InterfaceTracking
   {
-    // code...
+    public function insertTracking();
   }
 
 ?>

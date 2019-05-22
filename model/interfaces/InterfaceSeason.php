@@ -4,7 +4,8 @@
    */
   interface InterfaceSeason
   {
-    // code...
+    public function insertSeason();
+    public function deleteSeason();
   }
 
 ?>

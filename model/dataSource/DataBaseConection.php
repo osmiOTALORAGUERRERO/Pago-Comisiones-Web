@@ -11,9 +11,9 @@
     private $charset;
     public function __construct(){
         $this->host     = 'localhost';
-        $this->db       = 'comisiones';
-        $this->user     = 'root';
-        $this->password = "root";
+        $this->db       = 'commissions';
+        $this->user     = 'admin';
+        $this->password = 'toor';
         $this->charset  = 'utf8';
     }
 

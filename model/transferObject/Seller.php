@@ -85,7 +85,7 @@
     {
       return $this->ventas;
     }
-    public function set($ventas=array())
+    public function setVentas($ventas=array())
     {
       $this->ventas = $ventas;
     }
