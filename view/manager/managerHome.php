@@ -14,19 +14,22 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registrarEmpleado.php">Registrar empleado <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="registerSeller.php">Registrar vendedor <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="realizarPago.php">Realizar pago</a>
+              <a class="nav-item nav-link" href="registerCoordinator.php">Registrar coordinador <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registrarProductos.php">Registrar productos</a>
+              <a class="nav-item nav-link" href="makePayment.php">Realizar pago</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="establecerTemporadas.php">Establecer temporadas</a>
+              <a class="nav-item nav-link" href="registerProducts.php">Registrar productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="notificaciones.php">Notificaciones</a>
+              <a class="nav-item nav-link" href="setSeasons.php">Establecer temporadas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" href="notifications.php">Notificaciones</a>
             </li>
           </ul>
         </div>
@@ -42,7 +45,7 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">vendedor#</th>
               <th scope="col">Nombre</th>
               <th scope="col">Email</th>
               <th scope="col">Celular</th>

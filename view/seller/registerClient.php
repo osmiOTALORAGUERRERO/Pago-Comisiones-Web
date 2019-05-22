@@ -36,20 +36,54 @@
       <div class="row justify-content-center">
         <form class="form" action="index.html" method="post">
           <div class="form-group row">
+            <label for="nit">Numero de identificacion</label>
+            <input type="number" name="nit" class="form-control" required>
+          </div>
+          <div class="form-group row">
             <label for="">Nombre</label>
-            <input type="text" name="nombre" class="form-control">
+            <input type="text" name="nombre" class="form-control" required>
           </div>
           <div class="form-group row">
-            <label for="">Correo</label>
-            <input type="email" name="correo" class="form-control">
+            <label for="">correos</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Correo 1</span>
+              </div>
+              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Correo 2</span>
+              </div>
+              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Correo 3</span>
+              </div>
+              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
           </div>
           <div class="form-group row">
-            <label for="">Celular</label>
-            <input type="number" name="celular" class="form-control">
-          </div>
-          <div class="form-group row">
-            <label for="">Identificacion</label>
-            <input type="number" name="Identificacion" class="form-control">
+            <label for="">Numeros de contacto</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">numero 1</span>
+              </div>
+              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">numero 2</span>
+              </div>
+              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">numero 3</span>
+              </div>
+              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
           </div>
           <div class="form-group row">
             <button type="submit" name="registrar" class="btn btn-primary btn-lg btn-block">Registrar</button>

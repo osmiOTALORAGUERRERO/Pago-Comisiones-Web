@@ -16,13 +16,13 @@
       <h1>Login <?php echo $actor ?></h1>
       <div class="row justify-content-md-center p-3 mb-2 bg-light text-dark">
         <div class="col-8">
-          <form class="form" action="index.html" method="post">
+          <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
             <div class="form-group">
-              <label for="">Email</label>
-              <input type="email" name="correo" class="form-control">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control">
             </div>
             <div class="form-group">
-              <label for="">Password</label>
+              <label for="password">Password</label>
               <input type="password" name="password" class="form-control">
             </div>
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Login</button>

@@ -9,21 +9,24 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="gerenteHome.php"><span class="glyphicon glyphicon-home"></span>Compañia</a>
+        <a class="navbar-brand" href="managerHome.php"><span class="glyphicon glyphicon-home"></span>Compañia</a>
 
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registrarEmpleado.php">Registrar empleado <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="registerSeller.php">Registrar vendedor <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="realizarPago.php">Realizar pago</a>
+              <a class="nav-item nav-link" href="registerCoordinator.php">Registrar coordinador <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registrarProductos.php">Registrar productos</a>
+              <a class="nav-item nav-link" href="makePayment.php">Realizar pago</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="establecerTemporadas.php">Establecer temporadas</a>
+              <a class="nav-item nav-link" href="registerProducts.php">Registrar productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" href="setSeasons.php">Establecer temporadas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active text-dark" href="#">Notificaciones</a>
@@ -40,7 +43,7 @@
         <h1>Notificaciones</h1>
       </div>
       <div class="row justify-content-center">
-        
+
       </div>
     </div>
   </body>
