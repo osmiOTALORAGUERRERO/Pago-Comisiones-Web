@@ -46,7 +46,7 @@
         <div class="row">
           <h3>Realizar venta</h3>
         </div>
-        <form class="form" action="index.html" method="post">
+        <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group">
             <label for="">Productos escogidos</label>
             <input type="number" readonly name="productos" class="form-control" value="0">
