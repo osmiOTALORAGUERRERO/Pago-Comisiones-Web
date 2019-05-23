@@ -43,7 +43,7 @@
           <h1>Establecer teporadas</h1>
         </div>
         <div class="row justify-content-center">
-          <form class="form" action="index.html" method="post">
+          <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
             <div class="form-group">
               <label for="">Mes</label>
               <select class="form-control" name="mes">
