@@ -17,11 +17,29 @@
     }
     public function selectCoordinatorByEmail($email='')
     {
-      // code...
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT id_coordinator FROM Coordinator WHERE email = :email';
+      $result = $dataBase -> executeQuery($sql, array(':email'=>$email));
+
+      $coordinator = null;
+      if($result != false){
+        $coordinator = new Coordinator();
+        $coordinator -> setId($result[0]['id_coordinator']);
+      }
+      return $coordinator;
     }
     public function selectPasswordById($id='')
     {
-      // code...
+      $password = '';
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT password FROM Coordinator WHERE id_coordinator = :id_coordinator';
+
+      $result = $dataBase -> executeQuery($sql, array(':id_coordinator'=>$id));
+
+      if($result != false){
+        $password = $result[0]['password'];
+      }
+      return $password;
     }
   }
 
