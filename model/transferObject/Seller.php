@@ -21,9 +21,9 @@
     {
       return $this->id;
     }
-    public function setId($value='')
+    public function setId($id='')
     {
-      $this->
+      $this->id = $id;
     }
     public function getName()
     {
