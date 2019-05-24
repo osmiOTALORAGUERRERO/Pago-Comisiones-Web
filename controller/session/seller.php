@@ -9,10 +9,11 @@
   } else {
     $actor = 'Vendedor';
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // code...
+      $email = $_POST['email'];
+      $password = $_POST['password'];
     }
   }
 
-
+  echo password_hash('seller0', PASSWORD_BCRYPT);
   require_once '../../view/session/login.php';
 ?>

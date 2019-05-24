@@ -12,9 +12,9 @@
       $email = $_POST['email'];
       $password = $_POST['password'];
 
-
     }
   }
 
+  echo password_hash('coordinator0', PASSWORD_BCRYPT);
   require_once '../../view/session/login.php';
 ?>
