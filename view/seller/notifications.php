@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="sellerHome.php">Yo</a>
+        <a class="navbar-brand" href="home.php">Yo</a>
 
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
@@ -25,7 +25,7 @@
           </ul>
         </div>
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <a class="nav-item nav-link" href="#">Salir</a>
+          <a class="nav-item nav-link" href="../session/logout.php">Salir</a>
         </ul>
       </nav>
     </header>

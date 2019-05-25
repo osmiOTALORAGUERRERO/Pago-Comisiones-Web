@@ -1,7 +1,7 @@
 <?php
-  require_once $_SERVER['DOCUMENT_ROOT'].'Pago-Comisiones-Web/model/dataSource/DataBaseConection.php';
-  require_once $_SERVER['DOCUMENT_ROOT'].'Pago-Comisiones-Web/model/interfaces/InterfaceSeller.php';
-  require_once $_SERVER['DOCUMENT_ROOT'].'Pago-Comisiones-Web/model/transferObject/Seller.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/dataSource/DataBaseConection.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/interfaces/InterfaceSeller.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/transferObject/Seller.php';
   /**
    *
    */
@@ -29,7 +29,29 @@
     }
     public function selectSellerByEmail($email)
     {
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT id_seller FROM Sellers WHERE email = :email';
+      $result = $dataBase -> executeQuery($sql, array(':email'=>$email));
 
+      $seller = null;
+      if($result != false){
+        $seller = new Coordinator();
+        $seller -> setId($result[0]['id_seller']);
+      }
+      return $seller;
+    }
+    public function selectPasswordById($id='')
+    {
+      $password = '';
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT password FROM Sellers WHERE id_seller = :id_seller';
+
+      $result = $dataBase -> executeQuery($sql, array(':id_seller'=>$id));
+
+      if($result != false){
+        $password = $result[0]['password'];
+      }
+      return $password;
     }
     public function selectSellersByCoordinator($idCoordinator)
     {
