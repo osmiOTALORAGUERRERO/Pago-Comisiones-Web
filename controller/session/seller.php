@@ -16,7 +16,7 @@
       $password = $_POST['password'];
 
       $sellerDao = new SellerDAO();
-      $seller = $sellerDao -> selectCoordinatorByEmail($email);
+      $seller = $sellerDao -> selectSellerByEmail($email);
 
       if($seller != null){
           if(password_verify($password, $sellerDao->selectPasswordById($seller->getId()))){
