@@ -54,6 +54,10 @@
             <input type="number" name="monto" class="form-control">
           </div>
           <div class="form-group">
+            <label for="Monto">%Porcentaje de comision</label>
+            <input type="number" name="monto" class="form-control">
+          </div>
+          <div class="form-group">
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Realizar pago</button>
           </div>
         </form>

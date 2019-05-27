@@ -59,7 +59,24 @@
     }
     public function selectSellers()
     {
-
+      $dataBase = new DataBaseConection();
+      $result = $dataBase -> executeQuery('SELECT id_seller, name, email, contact_number, functions, type FROM Sellers
+        JOIN Recruitment
+        ON id_recruitment = id_recruitment');
+      $sellers = array();
+      if ($result != false) {
+        for ($i=0; $i < count($result); $i++) {
+          $seller = new seller();
+          $seller -> setId($result[$i]['id_seller']);
+          $seller -> setseller($result[$i]['name']);
+          $seller -> setNumberSellers($result[$i]['email']);
+          $seller -> setPorcentageProducts($result[$i]['functions']);
+          $seller -> setContactNumber($result[$i]['contact_number'])
+          $seller -> setRecruitment($result[$i]['type']);
+          array_push($sellers, $seller);
+        }
+      }
+      return $sellers;
     }
   }
 

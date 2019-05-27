@@ -29,7 +29,7 @@
               <a class="nav-item nav-link" href="setSeasons.php">Establecer temporadas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="#">Notificaciones</a>
+              <a class="nav-link active text-dark" href="#">Simulador</a>
             </li>
           </ul>
         </div>
@@ -40,10 +40,32 @@
     </header>
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Notificaciones</h1>
+        <h1>Controlador del simulador</h1>
       </div>
       <div class="row justify-content-center">
+        <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
+          <div class="">
+            <label for="Mes">Temporada que desea ejecutar para la simulacion:</label>
+            <select class="" name="season">
+              <?php
+              for ($i=0; $i < ; $i++) {
+                echo '<option value="'.$season -> getId().'">'.$season -> getSeason().'->'.$season -> getMonth().'</option>';
+              }
+              ?>
+            </select>
+          </div>
+          <div class="">
+            <label for=""><h5>Coordinador</h5></label>
+            <input type="text" name="Coordinador" value="" readonly>
+            <div class="">
+              <label for="">Vendedor</label>
+              <select class="" name="">
 
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" name="button">Iniciar simulacion</button>
+        </form>
       </div>
     </div>
   </body>
