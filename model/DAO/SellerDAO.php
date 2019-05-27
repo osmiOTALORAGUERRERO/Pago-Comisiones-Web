@@ -35,7 +35,7 @@
 
       $seller = null;
       if($result != false){
-        $seller = new Coordinator();
+        $seller = new Seller();
         $seller -> setId($result[0]['id_seller']);
       }
       return $seller;
@@ -68,7 +68,7 @@
       $sellers = array();
       if ($result != false) {
         for ($i=0; $i < count($result); $i++) {
-          $seller = new seller();
+          $seller = new Seller();
           $seller -> setId($result[$i]['id_seller']);
           $seller -> setseller($result[$i]['name']);
           $seller -> setNumberSellers($result[$i]['email']);
@@ -91,7 +91,7 @@
 
       if ($result != false) {
         for ($i=0; $i < count($result); $i++) {
-          $seller = new seller();
+          $seller = new Seller();
           $seller -> setId($result[$i]['id_seller']);
           $seller -> setseller($result[$i]['name']);
           $seller -> setNumberSellers($result[$i]['email']);
@@ -116,6 +116,23 @@
       ));
 
       return $result;
+    }
+
+    public function selectPaymentNotifications($idSeller){
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT base_balance, commission FROM payments WHERE id_seller = :idSeller';
+      $result = $dataBase -> executeQuery($sql, array(':idSeller'=>$idSeller));
+
+      $notifications= null;
+      if($result != false){
+        $notifications = array();
+        for ($i=0; $i =count($result) ; $i++) {
+          $notification = '';
+          $notification.='Saldo Base: '. $result[i]['base_balance'].'Comisión:' . $result[i]['commission'];
+          array_push($notifications, $notification);
+        }
+      }
+      return notifications;
     }
   }
 
