@@ -9,6 +9,8 @@
     public function selectPasswordById($id);
     public function selectSellersByCoordinator($idCoordinator);
     public function selectSellers();
+    public function selectSellersActiveSeason();
+    public function insertPayment($seller);
   }
 
 ?>

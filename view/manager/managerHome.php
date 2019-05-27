@@ -29,7 +29,7 @@
               <a class="nav-item nav-link" href="setSeasons.php">Establecer temporadas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="notifications.php">Notificaciones</a>
+              <a class="nav-item nav-link" href="simulatorController.php">Control simulador</a>
             </li>
           </ul>
         </div>
