@@ -12,6 +12,18 @@
     {
       // code...
     }
+
+    public function selectCoordinatorBySeller($idSeller){
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT id_coordinator FROM Coordinator WHERE id_seller = :id_seller';
+      $result = $dataBase -> executeQuery($sql, array(':id_seller'=>$idSeller));
+      $coordinator = null;
+      if($result != false){
+        $coordinator = new Coordinator();
+        $coordinator -> setId($result[0]['id_coordinator']);
+      }
+      return $coordinator;
+    };
   }
 
 ?>
