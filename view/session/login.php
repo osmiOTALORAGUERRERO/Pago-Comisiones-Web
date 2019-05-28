@@ -1,3 +1,4 @@
+<?php echo password_hash('1234', PASSWORD_BCRYPT); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

@@ -1,7 +1,7 @@
 <?php
-  require_once $_SERVER['DOCUMENT_ROOT'].'Pago-Comisiones-Web/model/dataSource/DataBaseConection.php';
-  require_once $_SERVER['DOCUMENT_ROOT'].'Pago-Comisiones-Web/model/interfaces/InterfaceProduct.php';
-  require_once $_SERVER['DOCUMENT_ROOT'].'Pago-Comisiones-Web/model/transferObject/Product.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/dataSource/DataBaseConection.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/interfaces/InterfaceProduct.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/transferObject/Product.php';
   /**
    *
    */
@@ -9,7 +9,7 @@
   {
         function __construct(){
 
-        }    
+        }
 
     public function selectProducts(){
        $dataBase = new DataBaseConection();
@@ -29,16 +29,15 @@
 
     public function insertProduct($product){
        $dataBase = new DataBaseConection();
-       $sql = 'INSERT INTO Products(id_product, product, category, price) VALUES
-       (NULL, :id, :product, :price, :category)';
+       $sql = 'INSERT INTO products (id_product, product, category, price) VALUES
+       (NULL, :product, :category, :price)';
 
-       $result = $dataBase -> executeInsert(sql, array(
-         ':id'=> $product ->getId(),
+       $result = $dataBase -> executeInsert($sql, array(
          ':product' => $product ->getProduct(),
          ':price' => $product -> getPrice(),
-         ':category' => $product -> getCategory(),
+         ':category' => $product -> getCategory()
        ));
-       return $result;
+       return true;
 
     }
   }

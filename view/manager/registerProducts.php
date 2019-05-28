@@ -43,6 +43,11 @@
         <h1>Registrar producto</h1>
       </div>
       <div class="row justify-content-center">
+        <?php if(!empty($message)): ?>
+          <div class="alert alert-succes" role='alert'>
+            <?php echo $message; ?>
+          </div>
+        <?php endif; ?>
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group">
             <label for="">Nombre</label>
@@ -54,7 +59,7 @@
           </div>
           <div class="form-group">
             <label for="">Categoria</label>
-            <select class="form-control" name="categoria">
+            <select class="form-control" name="category">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
