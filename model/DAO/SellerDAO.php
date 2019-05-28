@@ -122,7 +122,6 @@
       $dataBase = new DataBaseConection();
       $sql = 'SELECT base_balance, commission FROM payments WHERE id_seller = :idSeller';
       $result = $dataBase -> executeQuery($sql, array(':idSeller'=>$idSeller));
-
       $notifications= null;
       if($result != false){
         $notifications = array();

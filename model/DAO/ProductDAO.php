@@ -7,10 +7,39 @@
    */
   class ProductDAO implements InterfaceProduct
   {
+        function __construct(){
 
-    function __construct()
-    {
-      // code...
+        }    
+
+    public function selectProducts(){
+       $dataBase = new DataBaseConection();
+       $result= $dataBase -> executeQuery('SELECT id_product, product, category, price  FROM Products');
+       $products= array();
+       if ($result!= false) {
+         for ($i=0; $i <count($result) ; $i++) {
+           $product = new Product();
+           $product -> setId($result[$i]['id_product']);
+           $product -> setProduct($result[$i]['product']);
+           $product -> setPrice($result[$i]['price']);
+           $product -> setCategory($result[$i]['category']);
+           array_push($products, $product);
+         }
+       }
+    }
+
+    public function insertProduct($product){
+       $dataBase = new DataBaseConection();
+       $sql = 'INSERT INTO Products(id_product, product, category, price) VALUES
+       (NULL, :id, :product, :price, :category)';
+
+       $result = $dataBase -> executeInsert(sql, array(
+         ':id'=> $product ->getId(),
+         ':product' => $product ->getProduct(),
+         ':price' => $product -> getPrice(),
+         ':category' => $product -> getCategory(),
+       ));
+       return $result;
+
     }
   }
 
