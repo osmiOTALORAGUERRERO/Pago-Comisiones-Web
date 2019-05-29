@@ -13,10 +13,9 @@
     private $seller;
     private $client;
     private $soldProducts=array();
-    function __construct()
-    {
-      // code...
-    }
+    function __construct(){}
+
+      
     public function getNumberSale()
     {
       return $this->numberSale;
