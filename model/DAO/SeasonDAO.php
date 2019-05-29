@@ -47,6 +47,22 @@
       }
       return $season;
     }
+    public function selectSeasonById($idSeason='')
+    {
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT * FROM Seasons WHERE id_season = :idSeason';
+      $result = $dataBase -> executeQuery($sql, array(':idSeason'=>$idSeason));
+      $season = null;
+      if ($result != false) {
+        $season = new Season();
+        $season -> setId($result[0]['id_season']);
+        $season -> setSeason($result[0]['name_season']);
+        $season -> setNumberSellers($result[0]['number_sellers']);
+        $season -> setPorcentageProducts($result[0]['porcentage_products']);
+        $season -> setMonth($result[0]['month']);
+      }
+      return $season;
+    }
   }
 
 ?>

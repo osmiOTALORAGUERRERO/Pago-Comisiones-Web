@@ -8,6 +8,7 @@
     public function selectSeasons();
     public function deleteSeason($idSeason);
     public function selectActiveSeason();
+    public function selectSeasonById($idSeason);
   }
 
 ?>

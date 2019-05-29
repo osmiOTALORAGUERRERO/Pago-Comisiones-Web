@@ -7,7 +7,7 @@
 
   $actor;
   $error = '';
-  if (isset($_SESSION['emailCoordinator'])) {
+  if (isset($_SESSION['emailSeller'])) {
     header('location: ../coordinator/home.php');
   } else {
     $actor = 'Vendedor';
@@ -20,7 +20,7 @@
 
       if($seller != null){
           if(password_verify($password, $sellerDao->selectPasswordById($seller->getId()))){
-            $_SESSION['emailCoordinator'] = $email;
+            $_SESSION['emailSeller'] = $email;
             header('location: ../seller/home.php');
           }else {
             $error .= '<i>Contraseña incorrecta</i>';

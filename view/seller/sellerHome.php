@@ -14,13 +14,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registrarCliente.php">Registrar Cliente <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="registerClient.php">Registrar Cliente <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="realizarVenta.php">Realizar venta</a>
+              <a class="nav-item nav-link" href="makeSale.php">Realizar venta</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="notificaciones.php">Notificaciones</a>
+              <a class="nav-item nav-link" href="notifications.php">Notificaciones</a>
             </li>
           </ul>
         </div>

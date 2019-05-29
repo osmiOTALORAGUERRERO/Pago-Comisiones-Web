@@ -8,8 +8,6 @@
   class SellerDAO implements InterfaceSeller
   {
 
-    function __construct(){}
-
     public function insertSeller($seller, $password)
     {
       $dataBase = new DataBaseConection();
@@ -35,7 +33,7 @@
 
       $seller = null;
       if($result != false){
-        $seller = new Coordinator();
+        $seller = new Seller();
         $seller -> setId($result[0]['id_seller']);
       }
       return $seller;
@@ -62,17 +60,17 @@
       $dataBase = new DataBaseConection();
       $sql = 'SELECT id_seller, name, email, contact_number, functions, type FROM Sellers
         JOIN Recruitment
-        ON id_recruitment = id_recruitment';
+        ON Sellers.id_recruitment = Recruitment.id_recruitment';
 
       $result = $dataBase -> executeQuery($sql);
       $sellers = array();
       if ($result != false) {
         for ($i=0; $i < count($result); $i++) {
-          $seller = new seller();
+          $seller = new Seller();
           $seller -> setId($result[$i]['id_seller']);
-          $seller -> setseller($result[$i]['name']);
-          $seller -> setNumberSellers($result[$i]['email']);
-          $seller -> setPorcentageProducts($result[$i]['functions']);
+          $seller -> setName($result[$i]['name']);
+          $seller -> setEmail($result[$i]['email']);
+          $seller -> setFunctions($result[$i]['functions']);
           $seller -> setContactNumber($result[$i]['contact_number']);
           $seller -> setRecruitment($result[$i]['type']);
           array_push($sellers, $seller);
@@ -91,7 +89,7 @@
 
       if ($result != false) {
         for ($i=0; $i < count($result); $i++) {
-          $seller = new seller();
+          $seller = new Seller();
           $seller -> setId($result[$i]['id_seller']);
           $seller -> setseller($result[$i]['name']);
           $seller -> setNumberSellers($result[$i]['email']);
