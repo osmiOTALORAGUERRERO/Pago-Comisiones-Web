@@ -1,11 +1,11 @@
 <?php
   session_start();
-  include_once '../../model/DAO/CoordinadorDAO.php'; //includes del modelo necesarios para las funcionalidades
+  include_once '../../model/DAO/CoordinatorDAO.php'; //includes del modelo necesarios para las funcionalidades
+  include_once '../../model/transferObject/Coordinator.php';
 
   if (isset($_SESSION['emailManager'])) {
-    $sellerDao = new SellerDAO();
-    if ($_SERVER['REQUEST_METHOD']== '') {
-      
+    if ($_SERVER['REQUEST_METHOD']== 'POST') {
+
 
     }
 
