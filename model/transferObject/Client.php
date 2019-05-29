@@ -18,7 +18,7 @@
     {
       return $this->nit;
     }
-    public function setNit($nit='')
+    public function setNit($nit)
     {
       $this->nit = $nit;
     }
@@ -26,7 +26,7 @@
     {
       return $this->name;
     }
-    public function setName($name='')
+    public function setName($name)
     {
       $this->name = $name;
     }
@@ -34,7 +34,7 @@
     {
       return $this->email;
     }
-    public function set($email='')
+    public function set($email)
     {
       $this->email = $email
     }
@@ -42,7 +42,7 @@
     {
       return $this->contactNumber;
     }
-    public function setContactNumber($contactNumber='')
+    public function setContactNumber($contactNumber)
     {
       $this->contactNumber = $contactNumber
     }
@@ -50,7 +50,7 @@
     {
       return $this->direction;
     }
-    public function setDirection($direction='')
+    public function setDirection($direction)
     {
       return $this->direction = $direction;
     }
@@ -58,7 +58,7 @@
     {
       return $this->position;
     }
-    public function setPosition($position='')
+    public function setPosition($position)
     {
       $this->position = $position;
     }

@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="home.php">Yo</a>
+        <a class="navbar-brand" href="sellerHome.php">Yo</a>
 
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
@@ -37,11 +37,11 @@
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group row">
             <label for="nit">Numero de identificacion</label>
-            <input type="number" name="nit" class="form-control" required>
+            <input type="number" name="nit" id="nit" placeholder="Nit" class="form-control" required>
           </div>
           <div class="form-group row">
-            <label for="">Nombre</label>
-            <input type="text" name="nombre" class="form-control" required>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre"class="form-control" placeholder="Nombre" required>
           </div>
           <div class="form-group row">
             <label for="">correos</label>
@@ -49,19 +49,19 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Correo 1</span>
               </div>
-              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+              <input type="email" class="form-control" name="correo1" id="correo1" placeholder="example@example.com" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Correo 2</span>
               </div>
-              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="email" class="form-control" name="correo2" id="correo2" placeholder="example@example.com" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Correo 3</span>
               </div>
-              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="email" class="form-control" name="correo3" id="correo3" placeholder="example@example.com" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
           </div>
           <div class="form-group row">
@@ -70,19 +70,28 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">numero 1</span>
               </div>
-              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+              <input type="number" class="form-control" name="numero1" id="correo1" placeholder="Numero" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">numero 2</span>
               </div>
-              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="number" class="form-control" name="numero2" id="numero2" placeholder="Numero" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">numero 3</span>
               </div>
-              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="number" class="form-control" name="numero3" id="numero3" placeholder="Numero" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="">Direccion</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Direccion</span>
+              </div>
+              <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Direccion" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
           </div>
           <div class="form-group row">
