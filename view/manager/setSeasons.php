@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="managerHome.php"><span class="glyphicon glyphicon-home"></span>Compañia</a>
+        <a class="navbar-brand" href="home.php"><span class="glyphicon glyphicon-home"></span>Compañia</a>
 
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
@@ -29,12 +29,12 @@
               <a class="nav-link active text-dark" href="#">Establecer temporadas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="notifications.php">Notificaciones</a>
+              <a class="nav-item nav-link" href="simulatorController.php">Control simulador</a>
             </li>
           </ul>
         </div>
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <a class="nav-item nav-link" href="#">Salir</a>
+          <a class="nav-item nav-link" href="../session/logout.php">Salir</a>
         </ul>
       </nav>
     </header>

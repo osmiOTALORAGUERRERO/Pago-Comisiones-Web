@@ -9,7 +9,7 @@
       $coordinator -> setName($_POST['name']);
       $coordinator -> setEmail($_POST['email']);
       $coordinator -> setContactNumber($_POST['contactNumber']);
-      //contraseña
+      $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $coordinatorDAO = new coordinatorDAO();
       if ($coordinatorDAO -> insertCoordinator($coordinator, $password)) {
         $message ='registro Exitoso';

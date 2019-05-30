@@ -10,6 +10,8 @@
     private $contactNumber;
     private $functions;
     private $recruitment;
+    private $baseBalance;
+    private $lastCommission;
     private $activeSeason;
     private $coordinator;
     private $ventas = array();
@@ -21,9 +23,9 @@
     {
       return $this->id;
     }
-    public function setId($value='')
+    public function setId($id='')
     {
-      $this->
+      $this->id = $id;
     }
     public function getName()
     {
@@ -88,6 +90,22 @@
     public function setVentas($ventas=array())
     {
       $this->ventas = $ventas;
+    }
+    public function getLastCommission()
+    {
+      return $this->lastCommission;
+    }
+    public function setLastCommission($commisison='')
+    {
+      $this->lastCommission = $commisison;
+    }
+    public function getBaseBalance()
+    {
+      return $this->baseBalance;
+    }
+    public function setBaseBalance($baseBalance='')
+    {
+      $this->baseBalance = $baseBalance;
     }
   }
 

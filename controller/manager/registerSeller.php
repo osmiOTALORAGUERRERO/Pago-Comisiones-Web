@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(-1);
   session_start();
   include_once '../../model/DAO/SellerDAO.php'; //includes del modelo necesarios para las funcionalidades
   include_once '../../model/transferObject/Seller.php';
@@ -10,9 +12,9 @@
       $seller  -> setName($_POST['name']);
       $seller  -> setEmail($_POST['email']);
       $seller  -> setContactNumber($_POST['contactNumber']);
-      $seller  -> setFunctions($_POST['function']);
+      $seller  -> setFunctions($_POST['functions']);
       $seller  -> setRecruitment($_POST['recruitment']);
-      //contraseña
+      $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $sellerDAO = new sellerDAO();
       if ($sellerDAO -> insertSeller($seller, $password)) {
         $message ='registro Exitoso';

@@ -16,6 +16,11 @@
       <h1>Login <?php echo $actor ?></h1>
       <div class="row justify-content-md-center p-3 mb-2 bg-light text-dark">
         <div class="col-8">
+          <?php if(!empty($error)): ?>
+            <div class="alert alert-danger" role="alert">
+              <?php echo $error; ?>
+            </div>
+          <?php endif; ?>
           <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
             <div class="form-group">
               <label for="email">Email</label>

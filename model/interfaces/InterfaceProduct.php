@@ -6,7 +6,8 @@
   {
     public function selectProducts();
     public function insertProduct($product);
-    
+
+
   }
 
 ?>

@@ -4,7 +4,7 @@
    */
   interface InterfaceManager
   {
-    
+    public function selectManagerByEmail($email);
   }
 
 ?>
