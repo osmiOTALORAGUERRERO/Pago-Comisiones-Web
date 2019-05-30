@@ -36,7 +36,7 @@
     }
     public function set($email='')
     {
-      $this->email = $email
+      $this->email = $email;
     }
     public function getContactNumber()
     {
@@ -44,7 +44,7 @@
     }
     public function setContactNumber($contactNumber='')
     {
-      $this->contactNumber = $contactNumber
+      $this->contactNumber = $contactNumber;
     }
     public function getDirection()
     {
