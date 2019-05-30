@@ -50,14 +50,17 @@
                   <th scope="col">Nombre</th>
                   <th scope="col">Categoria</th>
                   <th scope="col">Precio</th>
+                  <th scope="col">Escoger</th>
                 </tr>
               </thead>
               <tbody>
                 <?php for ($i=0; $i < count($products); $i++) {?>
-                  <tr>  
-                    <td input="button"><?php echo $products[$i] ->getProduct(); ?></td>
-                    <td input="button"><?php echo $products[$i] ->getCategory(); ?></td>
-                    <td input="button"><?php echo $products[$i] ->getPrice(); ?></td>
+                  <tr>
+                    <td ><?php echo $products[$i] ->getId(); ?></td>
+                    <td ><?php echo $products[$i] ->getProduct(); ?></td>
+                    <td ><?php echo $products[$i] ->getCategory(); ?></td>
+                    <td ><?php echo $products[$i] ->getPrice(); ?></td>
+                    <td> <input type="button" name="" value="Añadir"> </td>
                   </tr>
                 <?php } ?>
               </tbody>
