@@ -7,7 +7,7 @@
   include_once '../../model/transferObject/Seller.php';
   include_once '../../model/transferObject/Coordinator.php';
 
-  $coordinator= array();
+  $coordinators= array();
   $sellers = array();
   if (isset($_SESSION['emailManager'])) {
       $sellerDAO = new SellerDAO();

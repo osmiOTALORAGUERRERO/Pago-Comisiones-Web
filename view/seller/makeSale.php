@@ -39,6 +39,33 @@
         <h3>Productos</h3>
       </div>
       <div class="row">
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <h1>Lista de productos</h1>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">producto#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php for ($i=0; $i < count($products); $i++) {?>
+                  <tr>
+
+                    <td input="button"><?php echo $products[$i] ->getProduct() ?></td>
+                    <td input="button"><?php echo $products[$i] ->getCategory() ?></td>
+                    <td input="button"><?php echo $products[$i] ->getPrice() ?></td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
         <!-- Productos traidos desde la base de datos -->
       </div>
     </div>
