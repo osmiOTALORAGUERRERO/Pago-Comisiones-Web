@@ -53,7 +53,14 @@
     }
     public function selectSellersByCoordinator($idCoordinator)
     {
-
+      $password = '';
+            $dataBase = new DataBaseConection();
+            $sql = 'SELECT password FROM Sellers WHERE id_coordinator = :id_coordinator';
+            $result = $dataBase -> executeQuery($sql, array(':id_coordinator'=>$idCoordinator));
+            if($result != false){
+              $password = $result[0]['password'];
+            }
+            return $password;
     }
     public function selectSellers()
     {

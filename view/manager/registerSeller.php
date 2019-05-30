@@ -62,7 +62,7 @@
           </div>
           <div class="form-group row">
             <label for="contrato">Tipo de contrato</label>
-            <select class="form-control" name="contrato" required>
+            <select class="form-control" name="recruitment" required>
               <option disabled selected>Selecciona una opción</option>
               <option value="1">Fijo</option>
               <option value="2">Indefinido</option>

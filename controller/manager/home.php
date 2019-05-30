@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(-1);
   session_start();
   include_once '../../model/DAO/ManagerDAO.php'; //includes del modelo necesarios para las funcionalidades
   include_once '../../model/DAO/CompanyDAO.php';

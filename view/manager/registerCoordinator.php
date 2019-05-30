@@ -59,7 +59,7 @@
           </div>
           <div class="form-group">
             <label for="password">Contraseña</label>
-            <input type="password" name="password" value="" required>
+            <input type="password" name="password" class="form-control" value="" required>
           </div>
           <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Registrar</button>
         </form>
