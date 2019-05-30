@@ -7,6 +7,16 @@
     <title>vendedor</title>
   </head>
   <body>
+    <?php
+    session_start();
+    if (isset($_SESSION['username'])) {
+        //asignar a variable
+        $usernameSesion = $_SESSION['username'];
+        //asegurar que no tenga "", <, > o &
+        $username = htmlspecialchars($usernameSesion);
+
+        //usarla donde quieras
+     ?>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Yo</a>
@@ -35,7 +45,7 @@
       </div>
       <div class="row">
         <ul>
-          <li>Nombre: <?php //nombre vendedor ?></li>
+          <li>Nombre: <?php $username ?></li>
           <li>Correo: <?php //correo vendedor?></li>
           <li>Cargo: <?php //Cargo vendedor ?></li>
           <li>Coordinador: <?php //Coordinador asociado al vendedor?></li>
