@@ -4,8 +4,13 @@
    */
   interface InterfaceSeason
   {
-    public function insertSeason();
-    public function deleteSeason();
+    public function insertSeason($season);
+    public function selectSeasons();
+    public function deleteSeason($idSeason);
+    public function selectActiveSeason();
+    public function selectSeasonById($idSeason);
+    public function updateSeaosonToActive($idSeason);
+    public function insertSeasonBySeller($idSeason='', $idSeller);
   }
 
 ?>

@@ -7,9 +7,22 @@
    */
   class CoordinatorDAO implements InterfaceCoordinator
   {
-    public function selectCoordinators($value='')
+    public function selectCoordinators()
     {
-      // code...
+      $dataBase = new DataBaseConection();
+      $result = $dataBase -> executeQuery('SELECT id_coordinator, name, email, contact_number FROM Coordinator');
+      $coordinators = array();
+      if ($result != false) {
+        for ($i=0; $i < count($result); $i++) {
+          $coordinator = new Coordinator();
+          $coordinator -> setId($result[$i]['id_coordinator']);
+          $coordinator -> setName($result[$i]['name']);
+          $coordinator -> setEmail($result[$i]['email']);
+          $coordinator -> setContactNumber($result[$i]['contact_number']);
+          array_push($coordinators, $coordinator);
+        }
+      }
+      return $coordinators;
     }
     public function selectCoordinatorBySeller($idSeller='')
     {

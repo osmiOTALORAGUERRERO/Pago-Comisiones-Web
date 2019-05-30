@@ -29,7 +29,7 @@
               <a class="nav-item nav-link" href="setSeasons.php">Establecer temporadas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="notifications.php">Notificaciones</a>
+              <a class="nav-item nav-link" href="simulatorController.php">Control simulador</a>
             </li>
           </ul>
         </div>
@@ -45,18 +45,33 @@
       <div class="row justify-content-center">
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group">
-            <label for="">Vendedor</label>
-            <select class="form-control" name="vendedor">
+            <label for="seller">Vendedor</label>
+            <select class="form-control" name="seller">
+              <?php
+                for ($i=0; $i < count($sellers); $i++) {
+                  echo '<option value="'.$sellers[i] -> getId().'">'.$sellers[i] -> getName().'</option>';
+                }
+              ?>
             </select>
           </div>
           <div class="form-group">
-            <label for="Monto">$Monto</label>
-            <input type="number" name="monto" class="form-control">
+            <label for="balance">$Monto</label>
+            <input type="number" name="balance" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="commission">$comision</label>
+            <input type="number" name="commission" class="form-control">
           </div>
           <div class="form-group">
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Realizar pago</button>
+            <button type="reset" name="button" class="btn btn-primary btn-lg btn-block">agregar otro pago</button>
           </div>
         </form>
+        <?php if(!empty($info)): ?>
+          <div class="alert alert-info" role="alert">
+            <?php echo $info; ?>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </body>

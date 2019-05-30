@@ -47,7 +47,7 @@
     }
     public function getMonth()
     {
-      return $this->Month;
+      return $this->month;
     }
     public function setMonth($month='')
     {
