@@ -4,7 +4,7 @@ error_reporting(-1);
   session_start();
   include_once '../session/seller.php';
   include_once '../registerSeller.php';
-  include_once '../../model/DAO/$sellerDao.php'
+  include_once '../../model/DAO/sellerDAO.php';
 
 
    //includes del modelo necesarios para las funcionalidades

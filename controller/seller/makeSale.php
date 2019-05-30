@@ -7,7 +7,8 @@
   $products = array();
   if (isset($_SESSION['emailSeller'])) {
     $productDAO = new ProductDAO();
-    $products= $productDAO-> selectProducts();
+    $products = $productDAO-> selectProducts();
+    echo 'emtro';
   } else {
     header('location: ../../index.php');
   }

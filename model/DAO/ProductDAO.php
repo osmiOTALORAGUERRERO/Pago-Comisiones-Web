@@ -25,6 +25,7 @@
            array_push($products, $product);
          }
        }
+       return $products;
     }
 
     public function insertProduct($product){

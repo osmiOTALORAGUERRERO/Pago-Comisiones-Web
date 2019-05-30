@@ -54,11 +54,10 @@
               </thead>
               <tbody>
                 <?php for ($i=0; $i < count($products); $i++) {?>
-                  <tr>
-
-                    <td input="button"><?php echo $products[$i] ->getProduct() ?></td>
-                    <td input="button"><?php echo $products[$i] ->getCategory() ?></td>
-                    <td input="button"><?php echo $products[$i] ->getPrice() ?></td>
+                  <tr>  
+                    <td input="button"><?php echo $products[$i] ->getProduct(); ?></td>
+                    <td input="button"><?php echo $products[$i] ->getCategory(); ?></td>
+                    <td input="button"><?php echo $products[$i] ->getPrice(); ?></td>
                   </tr>
                 <?php } ?>
               </tbody>
