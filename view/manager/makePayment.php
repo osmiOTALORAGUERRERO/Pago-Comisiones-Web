@@ -44,7 +44,7 @@
       </div>
       <div class="row justify-content-center">
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
-          <div class="form-group">
+          <div class="form-group"
             <label for="seller">Vendedor</label>
             <select class="form-control" name="seller">
               <?php

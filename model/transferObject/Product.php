@@ -41,7 +41,7 @@
     {
       return $this->category;
     }
-    public function set($category='')
+    public function setCategory($category='')
     {
       $this->category = $category;
     }

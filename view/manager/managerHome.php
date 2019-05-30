@@ -41,7 +41,7 @@
 
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Compañia</h1>
+        <h1>Compañia Lista Vendedores</h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -52,7 +52,41 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0; $i < count($sellers); $i++) {?>
+              <tr>
+                <th scope="row"><?php echo $i ?></th>
+                <td><?php echo $sellers[$i] ->getName() ?></td>
+                <td><?php echo $sellers[$i] ->getEmail() ?></td>
+                <td><?php echo $sellers[$i] ->getContactNumber() ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </div>
 
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <h1>Compañia Lista  Coordinadores</h1>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">coordinador#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
+              <th scope="col">Celular</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php for ($i=0; $i < count($coordinators); $i++) {?>
+              <tr>
+                <th scope="row"><?php echo $i ?></th>
+                <td><?php echo $coordinators[$i] ->getName() ?></td>
+                <td><?php echo $coordinators[$i] ->getEmail() ?></td>
+                <td><?php echo $coordinators[$i] ->getContactNumber() ?></td>
+              </tr>
+            <?php } ?>
           </tbody>
         </table>
       </div>

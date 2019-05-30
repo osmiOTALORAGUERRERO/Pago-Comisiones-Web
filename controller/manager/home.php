@@ -1,10 +1,19 @@
 <?php
   session_start();
-  include_once '../model/DAO/managerDAO.php'; //includes del modelo necesarios para las funcionalidades
-  include_once '../model/DAO/CompanyDAO.php';
+  include_once '../../model/DAO/ManagerDAO.php'; //includes del modelo necesarios para las funcionalidades
+  include_once '../../model/DAO/CompanyDAO.php';
+  include_once '../../model/DAO/SellerDAO.php';
+  include_once '../../model/DAO/CoordinatorDAO.php';
+  include_once '../../model/transferObject/Seller.php';
+  include_once '../../model/transferObject/Coordinator.php';
 
+  $coordinators= array();
+  $sellers = array();
   if (isset($_SESSION['emailManager'])) {
-    // Logica para la funcionalidad entre el modelo y la vista
+      $sellerDAO = new SellerDAO();
+      $sellers= $sellerDAO -> selectSellers() ;
+      $coordinatorDAO= new CoordinatorDAO();
+      $coordinators = $coordinatorDAO -> selectCoordinators();
   } else {
     header('location: ../../index.php');
   }

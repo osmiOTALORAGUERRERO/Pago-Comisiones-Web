@@ -8,7 +8,7 @@
   $actor;
   $error = '';
   if (isset($_SESSION['emailSeller'])) {
-    header('location: ../coordinator/home.php');
+    header('location: ../seller/home.php');
   } else {
     $actor = 'Vendedor';
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

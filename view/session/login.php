@@ -1,3 +1,6 @@
+<?php
+echo password_hash('holamami', PASSWORD_BCRYPT);
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

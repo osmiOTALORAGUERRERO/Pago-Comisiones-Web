@@ -115,6 +115,23 @@
 
       return $result;
     }
+    
+    public function selectPaymentNotifications($idSeller){
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT base_balance, commission FROM payments WHERE id_seller = :idSeller';
+      $result = $dataBase -> executeQuery($sql, array(':idSeller'=>$idSeller));
+      $notifications= null;
+      if($result != false){
+        $notifications = array();
+        for ($i=0; $i =count($result) ; $i++) {
+          $notification = '';
+          $notification.='Saldo Base: '. $result[i]['base_balance'].'Comisión:' . $result[i]['commission'];
+          array_push($notifications, $notification);
+        }
+      }
+      return notifications;
+    }
+    
     public function updateCoordinatorSeller($idSeller, $idCoordinator)
     {
       $dataBase = new DataBaseConection();
