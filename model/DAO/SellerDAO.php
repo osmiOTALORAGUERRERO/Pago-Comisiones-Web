@@ -8,8 +8,6 @@
   class SellerDAO implements InterfaceSeller
   {
 
-    function __construct(){}
-
     public function insertSeller($seller, $password)
     {
       $dataBase = new DataBaseConection();
@@ -108,7 +106,7 @@
       $dataBase = new DataBaseConection();
       $sql = 'INSERT INTO payments (id_payment, base_balance, commission, id_seller, id_financial, calification) VALUES (NULL, :base_balance, :commission, :id_seller, :id_financial, NULL)';
 
-      $result = executeInsert($sql, array(
+      $result = $dataBase->executeInsert($sql, array(
         ':base_balance'=>$seller->getBaseBalance(),
         ':commission'=>$seller->getLastCommission(),
         ':id_seller'=>$seller->getId(),
@@ -117,7 +115,7 @@
 
       return $result;
     }
-
+    
     public function selectPaymentNotifications($idSeller){
       $dataBase = new DataBaseConection();
       $sql = 'SELECT base_balance, commission FROM payments WHERE id_seller = :idSeller';
@@ -132,6 +130,15 @@
         }
       }
       return notifications;
+    }
+    
+    public function updateCoordinatorSeller($idSeller, $idCoordinator)
+    {
+      $dataBase = new DataBaseConection();
+      $sql =  'UPDATE Sellers SET id_coordinator = :id_coordinator WHERE id_seller= :id_seller';
+
+      $result = $dataBase->executeUpdate($sql, array(':id_coordinator'=>$idCoordinator, ':id_seller'=>$idSeller));
+      return $result;
     }
   }
 

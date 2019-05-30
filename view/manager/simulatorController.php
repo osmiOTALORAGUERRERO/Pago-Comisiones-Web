@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Tus notificaciones</title>
+    <title>Control principal para la simulacion</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../view/js/jquery-3.4.1.min.js" charset="utf-8"></script>
   </head>
   <body>
     <header>
@@ -42,31 +43,31 @@
       <div class="row justify-content-center">
         <h1>Controlador del simulador</h1>
       </div>
+      <?php if(!empty($info)): ?>
+        <div class="alert alert-info" role="alert">
+          <?php echo $info; ?>
+        </div>
+      <?php endif; ?>
       <div class="row justify-content-center">
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
-          <div class="">
+          <div id="body-season" class="">
             <label for="Mes">Temporada que desea ejecutar para la simulacion:</label>
-            <select class="" name="season">
+            <select id="seasons" class="form-control" name="season">
+              <option disabled selected>Selecciona una opción</option>
               <?php
-              for ($i=0; $i < ; $i++) {
-                echo '<option value="'.$season -> getId().'">'.$season -> getSeason().'->'.$season -> getMonth().'</option>';
+              for ($i=0; $i < count($seasons); $i++) {
+                echo '<option value="'.$seasons[$i] -> getId().'">'.$seasons[$i] -> getSeason().' -> '.$seasons[$i] -> getMonth().'</option>';
               }
               ?>
             </select>
           </div>
-          <div class="">
-            <label for=""><h5>Coordinador</h5></label>
-            <input type="text" name="Coordinador" value="" readonly>
-            <div class="">
-              <label for="">Vendedor</label>
-              <select class="" name="">
+          <div id="body" class="">
 
-              </select>
-            </div>
           </div>
           <button type="submit" class="btn btn-primary" name="button">Iniciar simulacion</button>
         </form>
       </div>
     </div>
+    <script src="../../view/js/manager/simulatorController.js" language="javascript"></script>
   </body>
 </html>

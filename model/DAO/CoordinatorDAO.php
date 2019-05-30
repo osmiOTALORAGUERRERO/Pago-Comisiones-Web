@@ -14,7 +14,7 @@
       $coordinators = array();
       if ($result != false) {
         for ($i=0; $i < count($result); $i++) {
-          $coordinator = new coordinator();
+          $coordinator = new Coordinator();
           $coordinator -> setId($result[$i]['id_coordinator']);
           $coordinator -> setName($result[$i]['name']);
           $coordinator -> setEmail($result[$i]['email']);
