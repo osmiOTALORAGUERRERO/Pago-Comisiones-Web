@@ -12,6 +12,19 @@
     {
       // code...
     }
+    public function insertCoordinator($coordinator, $password)
+    {
+      $dataBase = new DataBaseConection();
+      $sql = 'INSERT INTO Coordinator (id_coordinator, name, email, contact_number, password) VALUES
+       (NULL, :name, :email, :contact_number: password)';
+       $result = $dataBase -> executeInsert($sql, array(
+         ':name' => $coordinator ->getName(),
+         ':email' => $coordinator -> getEmail(),
+         ':contact_number' => $coordinator -> getContactNumber()
+         ':password'=>$password,
+       ));
+       return true;
+    }
 
     public function selectCoordinatorBySeller($idSeller){
       $dataBase = new DataBaseConection();
