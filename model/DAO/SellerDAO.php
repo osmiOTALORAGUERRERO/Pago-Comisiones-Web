@@ -30,13 +30,18 @@
     public function selectSellerByEmail($email)
     {
       $dataBase = new DataBaseConection();
-      $sql = 'SELECT id_seller FROM Sellers WHERE email = :email';
+      $sql = 'SELECT * FROM Sellers WHERE email = :email';
       $result = $dataBase -> executeQuery($sql, array(':email'=>$email));
 
       $seller = null;
       if($result != false){
         $seller = new Coordinator();
         $seller -> setId($result[0]['id_seller']);
+        $seller -> setName($result[0]['id_seller']);
+        $seller -> setEmail($result[0]['id_seller']);
+        $seller -> setFunctions($result[0]['id_seller']);
+        $seller -> setFunctions($result[0]['id_seller']);
+        $seller -> setCoordinator($result[0]['id_coordinator']);
       }
       return $seller;
     }
@@ -59,7 +64,6 @@
     }
     public function selectSellers()
     {
-
     }
   }
 

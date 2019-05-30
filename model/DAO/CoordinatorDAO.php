@@ -11,9 +11,19 @@
     {
       // code...
     }
-    public function selectCoordinatorBySeller($idSeller='')
+    public function selectCoordinatorBySeller($id_coordinator)
     {
-      // code...
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT * FROM Coordinator WHERE id_coordinator = :id_coordinator';
+      $result = $dataBase -> executeQuery($sql, array(':id_coordinator'=>$id_coordinator));
+
+      $coordinator = new Coordinator();
+      if($result != false){
+        $coordinator = new Coordinator();
+        $coordinator -> setId($result[0]['id_coordinator']);
+        $coordinator -> setName($result[0]['name']);
+      }
+      return $coordinator;
     }
     public function selectCoordinatorByEmail($email='')
     {
@@ -25,6 +35,7 @@
       if($result != false){
         $coordinator = new Coordinator();
         $coordinator -> setId($result[0]['id_coordinator']);
+        $coordinator -> setName($result[0]['name']);
       }
       return $coordinator;
     }

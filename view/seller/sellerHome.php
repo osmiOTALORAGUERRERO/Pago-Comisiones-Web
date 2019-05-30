@@ -8,13 +8,20 @@
   </head>
   <body>
     <?php
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/transferObject/Seller.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/DAO/SellerDAO.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/transferObject/Coordinator.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Pago-Comisiones-Web/model/DAO/CoordinatorDAO.php';
     session_start();
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['emailSeller'])) {
         //asignar a variable
-        $usernameSesion = $_SESSION['username'];
+        $email = $_SESSION['emailSeller'];
         //asegurar que no tenga "", <, > o &
-        $username = htmlspecialchars($usernameSesion);
-
+        $seller_email = htmlspecialchars($email);
+        $sellerDAO = new SellerDAO();
+        $empleado = htmlspecialchars( $sellerDAO->selectSellerByEmail($email) );
+        $coordinator_DAO = new CoordinatorDAO();
+        $coordinator = htmlspecialchars( $coordinator_DAO->selectCoordinatorBySeller($id_coordinator) );
         //usarla donde quieras
      ?>
     <header>
@@ -45,10 +52,10 @@
       </div>
       <div class="row">
         <ul>
-          <li>Nombre: <?php $username ?></li>
-          <li>Correo: <?php //correo vendedor?></li>
-          <li>Cargo: <?php //Cargo vendedor ?></li>
-          <li>Coordinador: <?php //Coordinador asociado al vendedor?></li>
+          <li>Nombre: <?php $seller_email ?></li>
+          <li>Correo: <?php $empleado->getEmail();?></li>
+          <li>Cargo: <?php $empleado->getFunctions(); ?></li>
+          <li>Coordinador: <?php $coordinator->getName()?></li>
         </ul>
       </div>
     </div>
