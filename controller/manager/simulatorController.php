@@ -12,20 +12,30 @@ error_reporting(-1);
   $seasons = array();
   $coordinators = array();
   $sellers = array();
-  $estado = '';
+  $info = '';
   if (isset($_SESSION['emailManager'])) {
+
     $seasonDao = new SeasonDAO();
+    $coordinatorDao = new CoordinatorDAO();
+    $sellerDao = new SellerDAO();
+    $coordinators = $coordinatorDao -> selectCoordinators();
+    $sellers = $sellerDao -> selectSellers();
+
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
       $sellersByCoordinator = $_POST['seller'];
-
+      $seasonChoose = $_POST['season'];
+      for ($i=0; $i < count($sellersByCoordinator); $i++) {
+        for ($j=0; $j < count($sellersByCoordinator[$i]); $j++) {
+          $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
+          $seasonDao -> insertSeasonBySeller($sellersByCoordinator[$i][$j], $seasonChoose);
+        }
+      }
+      $seasonDao -> updateSeaosonToActive($seasonChoose);
+      $info = 'Temporada escojida en ejecucion';
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['idSeason'])) {
       $seasonChoose = $_GET['idSeason'];
-      $coordinatorDao = new CoordinatorDAO();
-      $sellersDao = new SellerDAO();
 
-      $coordinators = $coordinatorDao -> selectCoordinators();
-      $sellers = $sellersDao -> selectSellers();
       $season = $seasonDao -> selectSeasonById($seasonChoose);
       $sellersResponse = array();
       for ($i=0; $i < count($sellers); $i++) {
@@ -42,6 +52,8 @@ error_reporting(-1);
     } else {
       if($seasonDao -> selectActiveSeason() == null){
         $seasons = $seasonDao -> selectSeasons();
+      }else {
+        $info = 'Hay una temporada activa';
       }
     }
   } else {

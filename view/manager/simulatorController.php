@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Tus notificaciones</title>
+    <title>Control principal para la simulacion</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../../view/js/jquery-3.4.1.min.js" charset="utf-8"></script>
@@ -43,6 +43,11 @@
       <div class="row justify-content-center">
         <h1>Controlador del simulador</h1>
       </div>
+      <?php if(!empty($info)): ?>
+        <div class="alert alert-info" role="alert">
+          <?php echo $info; ?>
+        </div>
+      <?php endif; ?>
       <div class="row justify-content-center">
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div id="body-season" class="">

@@ -63,6 +63,23 @@
       }
       return $season;
     }
+    public function updateSeaosonToActive($idSeason)
+    {
+      $dataBase = new DataBaseConection();
+      $sql = 'UPDATE Seasons SET active = 1 WHERE id_season = :id_season';
+      $result = $dataBase -> executeUpdate($sql, array(':id_season'=>$idSeason));
+      return $result;
+    }
+    public function insertSeasonBySeller($idSeason, $idSeller)
+    {
+      $dataBase = new DataBaseConection();
+      $sql = 'INSERT INTO SeasonBySeller (id_season, id_seller) VALUES (:id_season, :id_seller)';
+
+      $result = $dataBase -> executeInsert($sql, array(
+        ':id_season'=>$idSeason, ':id_seller'=>$idSeller
+      ));
+      return $result;
+    }
   }
 
 ?>
