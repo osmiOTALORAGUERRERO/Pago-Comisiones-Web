@@ -88,21 +88,20 @@
     public function selectSellersActiveSeason()
     {
       $dataBase = new DataBaseConection();
-      $sql = 'SELECT * FROM Sellers WHERE id_seller = (
-        SELECT id_seller FROM SeasonBySeller JOIN Seasons ON id_season = id_season WHERE active = 1)';
+      $sql = 'SELECT * FROM Sellers WHERE id_seller IN (
+        SELECT id_seller FROM SeasonBySeller JOIN Seasons ON SeasonBySeller.id_season = Seasons.id_season WHERE active = 1)';
 
       $result = $dataBase -> executeQuery($sql);
       $sellers = array();
-
       if ($result != false) {
         for ($i=0; $i < count($result); $i++) {
           $seller = new Seller();
           $seller -> setId($result[$i]['id_seller']);
-          $seller -> setseller($result[$i]['name']);
-          $seller -> setNumberSellers($result[$i]['email']);
-          $seller -> setPorcentageProducts($result[$i]['functions']);
+          $seller -> setName($result[$i]['name']);
+          $seller -> setEmail($result[$i]['email']);
+          $seller -> setFunctions($result[$i]['functions']);
           $seller -> setContactNumber($result[$i]['contact_number']);
-          $seller -> setRecruitment($result[$i]['type']);
+          // $seller -> setRecruitment($result[$i]['type']);
           array_push($sellers, $seller);
         }
       }
@@ -119,10 +118,10 @@
         ':id_seller'=>$seller->getId(),
         ':id_financial'=>1
       ));
-
+      
       return $result;
     }
-    
+
     public function selectPaymentNotifications($idSeller){
       $dataBase = new DataBaseConection();
       $sql = 'SELECT base_balance, commission FROM payments WHERE id_seller = :idSeller';
@@ -138,7 +137,7 @@
       }
       return notifications;
     }
-    
+
     public function updateCoordinatorSeller($idSeller, $idCoordinator)
     {
       $dataBase = new DataBaseConection();

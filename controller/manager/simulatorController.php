@@ -13,6 +13,7 @@ error_reporting(-1);
   $coordinators = array();
   $sellers = array();
   $info = '';
+  $active = false;
   if (isset($_SESSION['emailManager'])) {
 
     $seasonDao = new SeasonDAO();
@@ -33,6 +34,7 @@ error_reporting(-1);
       }
       $seasonDao -> updateSeaosonToActive($seasonChoose);
       $info = 'Temporada escojida en ejecucion';
+      $active = true;
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['idSeason'])) {
       $seasonChoose = $_GET['idSeason'];
 
@@ -50,10 +52,12 @@ error_reporting(-1);
       echo json_encode(array('sellers'=>$sellersResponse, 'coordinators'=>$coordinatorsResponse, 'number-sellers'=>$season->getNumberSellers(), 'success'=>true));
       return;
     } else {
-      if($seasonDao -> selectActiveSeason() == null){
+      $seasonActive = $seasonDao -> selectActiveSeason();
+      if($seasonActive == null){
         $seasons = $seasonDao -> selectSeasons();
       }else {
         $info = 'Hay una temporada activa';
+        $active = true;
       }
     }
   } else {
