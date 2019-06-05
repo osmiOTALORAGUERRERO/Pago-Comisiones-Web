@@ -51,8 +51,8 @@
         $statement = $this->connect() -> prepare($sql);
         $statement -> execute($values);
         $result = ($statement->rowCount() > 0);
+        return $result;
       }
-      return $result;
     }
     public function executeUpdate($sql='', $values=array())
     {

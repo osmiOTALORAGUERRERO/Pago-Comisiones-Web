@@ -29,8 +29,8 @@ error_reporting(-1);
         $seasonChoose = $_POST['season'];
         for ($i=0; $i < count($sellersByCoordinator); $i++) {
           for ($j=0; $j < count($sellersByCoordinator[$i]); $j++) {
-            $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
-            $seasonDao -> insertSeasonBySeller($sellersByCoordinator[$i][$j], $seasonChoose);
+            $result = $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
+            $result2 = $seasonDao -> insertSeasonBySeller(intval($seasonChoose), intval($sellersByCoordinator[$i][$j]));
           }
         }
         $seasonDao -> updateSeaosonToActive($seasonChoose, 1);

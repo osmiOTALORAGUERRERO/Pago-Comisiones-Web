@@ -147,9 +147,13 @@
     public function updateCoordinatorSeller($idSeller, $idCoordinator)
     {
       $dataBase = new DataBaseConection();
-      $sql =  'UPDATE Sellers SET id_coordinator = :id_coordinator WHERE id_seller= :id_seller';
+      $sql =  'UPDATE Sellers SET id_coordinator = :id_coordinator WHERE id_seller = :id_seller';
 
-      $result = $dataBase->executeUpdate($sql, array(':id_coordinator'=>$idCoordinator, ':id_seller'=>$idSeller));
+      $result = $dataBase->executeUpdate($sql, array(
+        ':id_coordinator'=>$idCoordinator,
+        ':id_seller'=>$idSeller
+      ));
+
       return $result;
     }
   }

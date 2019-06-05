@@ -104,7 +104,8 @@
       $sql = 'INSERT INTO SeasonBySeller (id_season, id_seller) VALUES (:id_season, :id_seller)';
 
       $result = $dataBase -> executeInsert($sql, array(
-        ':id_season'=>$idSeason, ':id_seller'=>$idSeller
+        ':id_season'=>$idSeason,
+        ':id_seller'=>$idSeller
       ));
       return $result;
     }
