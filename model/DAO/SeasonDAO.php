@@ -8,9 +8,17 @@
   class SeasonDAO implements InterfaceSeason
   {
 
-    public function insertSeason($season)
+    public function updateSeason($season)
     {
-
+      $dataBase = new DataBaseConection();
+      $sql = 'UPDATE Seasons SET name_season=:name_season, number_sellers=:number_sellers, porcentage_products=:porcentage_products WHERE id_season=:id_season';
+      $result = $dataBase -> executeUpdate($sql, array(
+        ':name_season'=> $season->getSeason(),
+        ':number_sellers'=> $season->getNumberSellers(),
+        ':porcentage_products'=> $season->getPorcentageProducts(),
+        ':id_season'=> $season->getId()
+      ));
+      return $result;
     }
     public function selectSeasons()
     {

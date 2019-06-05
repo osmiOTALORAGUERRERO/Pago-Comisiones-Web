@@ -7,10 +7,6 @@
    */
   class ProductDAO implements InterfaceProduct
   {
-        function __construct(){
-
-        }
-
     public function selectProducts(){
        $dataBase = new DataBaseConection();
        $result= $dataBase -> executeQuery('SELECT id_product, product, category, price  FROM Products');
@@ -30,16 +26,15 @@
 
     public function insertProduct($product){
        $dataBase = new DataBaseConection();
-       $sql = 'INSERT INTO products (id_product, product, category, price) VALUES
+       $sql = 'INSERT INTO Products (id_product, product, category, price) VALUES
        (NULL, :product, :category, :price)';
 
        $result = $dataBase -> executeInsert($sql, array(
          ':product' => $product ->getProduct(),
-         ':price' => $product -> getPrice(),
-         ':category' => $product -> getCategory()
+         ':category' => $product -> getCategory(),
+         ':price' => $product -> getPrice()
        ));
-       return true;
-
+       return $result;
     }
   }
 

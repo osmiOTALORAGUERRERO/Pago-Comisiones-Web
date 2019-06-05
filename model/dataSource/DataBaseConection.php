@@ -52,6 +52,7 @@
         $statement -> execute($values);
         $result = ($statement->rowCount() > 0);
       }
+      return $result;
     }
     public function executeUpdate($sql='', $values=array())
     {

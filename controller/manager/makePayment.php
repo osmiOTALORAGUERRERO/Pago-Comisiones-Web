@@ -9,14 +9,14 @@
   $info = '';
   if (isset($_SESSION['emailManager'])) {
     $sellerDao = new SellerDAO();
+    $seller = new Seller();
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-      $seller = new Seller();
       $seller -> setId($_POST['seller']);
       $seller -> setBaseBalance($_POST['balance']);
       $seller -> setLastCommission($_POST['commission']);
-
-      if($sellerDao -> insertPayment($seller)){
+      $result = $sellerDao -> insertPayment($seller);
+      if($result != false){
         $info = '<i>Pago realizado exitosamente</i>';
       }else {
         $info = '<i>No se pudo realizar el pago</i>';
