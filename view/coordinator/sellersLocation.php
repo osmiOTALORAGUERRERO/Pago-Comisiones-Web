@@ -39,7 +39,29 @@
       <div class="row justify-content-center">
         <!-- En la tabla van todos los vendedores -->
         <table>
-
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">nombre</th>
+              <th scope="col">email</th>
+              <th scope="col">numero de contacto</th>
+              <th scope="col">tipo de contrato</th>
+              <th scope="col">funciones</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php for ($i=0; $i < count($sellers); $i++) {?>
+              <tr>
+                <th scope="row"><?php echo $i ?></th>
+                <td><?php echo $sellers[$i] ->getName(); ?></td>
+                <td><?php echo $sellers[$i] ->getEmail(); ?></td>
+                <td><?php echo $sellers[$i] ->getContactNumber(); ?></td>
+                <td><?php echo $sellers[$i] ->getRecruitment(); ?></td>
+                <td><?php echo $sellers[$i] ->getFunctions(); ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
         </table>
       </div>
     </div>
