@@ -24,17 +24,22 @@ error_reporting(-1);
 
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-      $sellersByCoordinator = $_POST['seller'];
-      $seasonChoose = $_POST['season'];
-      for ($i=0; $i < count($sellersByCoordinator); $i++) {
-        for ($j=0; $j < count($sellersByCoordinator[$i]); $j++) {
-          $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
-          $seasonDao -> insertSeasonBySeller($sellersByCoordinator[$i][$j], $seasonChoose);
+      if ($_POST['control'] == 'start') {
+        $sellersByCoordinator = $_POST['seller'];
+        $seasonChoose = $_POST['season'];
+        for ($i=0; $i < count($sellersByCoordinator); $i++) {
+          for ($j=0; $j < count($sellersByCoordinator[$i]); $j++) {
+            $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
+            $seasonDao -> insertSeasonBySeller($sellersByCoordinator[$i][$j], $seasonChoose);
+          }
         }
+        $seasonDao -> updateSeaosonToActive($seasonChoose, 1);
+        $info = 'Temporada escojida en ejecucion';
+        $active = true;
+      } else {
+        $seasonDao -> updateSeaosonToActive($_POST['season'], 0);
+        $seasonDao -> deleteSeasonsBySeller($_POST['season']);
       }
-      $seasonDao -> updateSeaosonToActive($seasonChoose);
-      $info = 'Temporada escojida en ejecucion';
-      $active = true;
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['idSeason'])) {
       $seasonChoose = $_GET['idSeason'];
 
@@ -51,14 +56,13 @@ error_reporting(-1);
       }
       echo json_encode(array('sellers'=>$sellersResponse, 'coordinators'=>$coordinatorsResponse, 'number-sellers'=>$season->getNumberSellers(), 'success'=>true));
       return;
-    } else {
-      $seasonActive = $seasonDao -> selectActiveSeason();
-      if($seasonActive == null){
-        $seasons = $seasonDao -> selectSeasons();
-      }else {
-        $info = 'Hay una temporada activa';
-        $active = true;
-      }
+    }
+    $seasonActive = $seasonDao -> selectActiveSeason();
+    if($seasonActive == null){
+      $seasons = $seasonDao -> selectSeasonsSet();
+    }else {
+      $info = 'Hay una temporada activa';
+      $active = true;
     }
   } else {
     header('location: ../../index.php');
