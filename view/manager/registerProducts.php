@@ -34,7 +34,7 @@
           </ul>
         </div>
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <a class="nav-item nav-link" href="../session/logout.php">Salir</a>
+          <a class="nav-item nav-link" href="../session/logout.php">Leave</a>
         </ul>
       </nav>
     </header>
@@ -66,7 +66,7 @@
               <option value="D">D</option>
             </select>
           </div>
-          <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Registrar</button>
+          <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Register</button>
         </form>
       </div>
     </div>

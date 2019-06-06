@@ -32,7 +32,7 @@ error_reporting(-1);
         }
       }
       $seasonDao -> updateSeaosonToActive($seasonChoose);
-      $info = 'Temporada escojida en ejecucion';
+      $info = 'Season chossen in performance';
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['idSeason'])) {
       $seasonChoose = $_GET['idSeason'];
 
@@ -53,7 +53,7 @@ error_reporting(-1);
       if($seasonDao -> selectActiveSeason() == null){
         $seasons = $seasonDao -> selectSeasons();
       }else {
-        $info = 'Hay una temporada activa';
+        $info = 'there is an active season';
       }
     }
   } else {

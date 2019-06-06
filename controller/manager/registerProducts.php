@@ -14,9 +14,9 @@ error_reporting(-1);
       $ProductDAO = new ProductDAO();
 
       if ($ProductDAO -> insertProduct($product)) {
-        $message ='registro Exitoso';
+        $message ='register Successful';
       }else {
-       $message= ' el registro no se ejecuto correctamente';
+       $message= ' the register couldn`t be done';
       }
     }
   } else {
