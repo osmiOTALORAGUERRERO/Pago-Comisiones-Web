@@ -42,16 +42,19 @@
       <div class="row justify-content-center">
         <h1>Make payments to employees</h1>
       </div>
+      <?php if(!empty($info)): ?>
+        <div class="alert alert-info" role="alert">
+          <?php echo $info; ?>
+        </div>
+      <?php endif; ?>
       <div class="row justify-content-center">
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group"
             <label for="seller">Seller</label>
             <select class="form-control" name="seller">
-              <?php
-                for ($i=0; $i < count($sellers); $i++) {
-                  echo '<option value="'.$sellers[i] -> getId().'">'.$sellers[i] -> getName().'</option>';
-                }
-              ?>
+              <?php for ($i=0; $i < count($sellers); $i++) :?>
+                <option value=<?php echo $sellers[$i]->getId(); ?>><?php echo $sellers[$i]->getName(); ?></option>
+              <?php endfor; ?>
             </select>
           </div>
           <div class="form-group">
@@ -67,11 +70,6 @@
             <button type="reset" name="button" class="btn btn-primary btn-lg btn-block">agregar otro pago</button>
           </div>
         </form>
-        <?php if(!empty($info)): ?>
-          <div class="alert alert-info" role="alert">
-            <?php echo $info; ?>
-          </div>
-        <?php endif; ?>
       </div>
     </div>
   </body>

@@ -9,15 +9,15 @@
   $info = '';
   if (isset($_SESSION['emailManager'])) {
     $sellerDao = new SellerDAO();
+    $seller = new Seller();
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-      $seller = new Seller();
       $seller -> setId($_POST['seller']);
       $seller -> setBaseBalance($_POST['balance']);
       $seller -> setLastCommission($_POST['commission']);
-
-      if($sellerDao -> insertPayment($seller)){
-        $info = '<i>Payment successful</i>';
+      $result = $sellerDao -> insertPayment($seller);
+      if($result != false){
+        $info = '<i>Payment could be done successful</i>';
       }else {
         $info = '<i>Payment couldn`t be done</i>';
       }

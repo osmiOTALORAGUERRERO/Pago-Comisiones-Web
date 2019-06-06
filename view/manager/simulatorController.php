@@ -49,23 +49,44 @@
         </div>
       <?php endif; ?>
       <div class="row justify-content-center">
-        <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
-          <div id="body-season" class="">
-            <label for="Mes">Season what ypu want run for the simulation:</label>
-            <select id="seasons" class="form-control" name="season">
-              <option disabled selected>Select an opction</option>
-              <?php
-              for ($i=0; $i < count($seasons); $i++) {
-                echo '<option value="'.$seasons[$i] -> getId().'">'.$seasons[$i] -> getSeason().' -> '.$seasons[$i] -> getMonth().'</option>';
-              }
-              ?>
-            </select>
-          </div>
-          <div id="body" class="">
+          <?php if (!$active): ?>
+            <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
+              <div id="body-season" class="">
+                <label for="Mes">Season what run for the simulation:</label>
+                <select id="seasons" class="form-control" name="season">
+                  <option disabled selected>Choose an option</option>
+                  <?php
+                  for ($i=0; $i < count($seasons); $i++) {
+                    echo '<option value="'.$seasons[$i] -> getId().'">'.$seasons[$i] -> getSeason().' -> '.$seasons[$i] -> getMonth().'</option>';
+                  }
+                  ?>
+                </select>
+              </div>
+              <div id="body" class="">
 
-          </div>
-          <button type="submit" class="btn btn-primary" name="button">Start simulation</button>
-        </form>
+              </div>
+            <input type="hidden" name="control" value="start">
+            <button type="submit" class="btn btn-primary" name="button">Start simulation</button>
+          </form>
+          <?php else: ?>
+            <div class="container">
+              <div class="row justify-content-center">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item active">Month: <?php echo $seasonActive -> getMonth(); ?></li>
+                  <li class="list-group-item">Festivity: <?php echo $seasonActive -> getSeason(); ?></li>
+                  <li class="list-group-item">Number el seller: <?php echo $seasonActive -> getNumberSellers(); ?></li>
+                  <li class="list-group-item">Percent of products: <?php echo $seasonActive -> getPorcentageProducts(); ?></li>
+                  <li class="list-group-item">In execution</li>
+                </ul>
+              </div>
+              <div class="row justify-content-center">
+                <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
+                  <input type="hidden" name="control" value="end">
+                  <button type="submit" class="btn btn-primary" name="button">End season</button>
+                </form>
+              </div>
+            </div>
+          <?php endif; ?>
       </div>
     </div>
     <script src="../../view/js/manager/simulatorController.js" language="javascript"></script>

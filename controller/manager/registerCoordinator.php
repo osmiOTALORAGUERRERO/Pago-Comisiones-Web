@@ -3,6 +3,7 @@
   include_once '../../model/DAO/CoordinatorDAO.php'; //includes del modelo necesarios para las funcionalidades
   include_once '../../model/transferObject/Coordinator.php';
 
+  $message = '';
   if (isset($_SESSION['emailManager'])) {
     if($_SERVER["REQUEST_METHOD"] == 'POST'){
       $coordinator = new Coordinator();
