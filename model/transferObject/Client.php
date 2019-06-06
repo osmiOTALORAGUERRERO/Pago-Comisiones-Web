@@ -34,7 +34,7 @@
     {
       return $this->email;
     }
-    public function set($email='')
+    public function setEmail($email='')
     {
       $this->email = $email;
     }
