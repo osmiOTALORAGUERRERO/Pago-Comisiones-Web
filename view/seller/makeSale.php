@@ -4,12 +4,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<<<<<<< HEAD
     <title>Make sale</title>
-=======
     <script type="text/javascript" src="../../view/js/jquery-3.4.1.min.js" charset="utf-8"></script>
-    <title>Realizar Venta</title>
->>>>>>> develop
   </head>
   <body>
     <header>
@@ -39,48 +35,24 @@
         <h1>Sale</h1>
       </div>
     </div>
-<<<<<<< HEAD
-    <div class="container">
-      <div class="row">
-        <h3>Products</h3>
-      </div>
-      <div class="row">
-
-        <div class="container">
-          <div class="row justify-content-center">
-            <h1>products list</h1>
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">product#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">choose</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php for ($i=0; $i < count($products); $i++) {?>
-=======
     <?php if ($active): ?>
       <div class="container">
         <div class="row">
-          <h3>Productos</h3>
+          <h3>Products</h3>
         </div>
         <div class="row">
 
           <div class="container">
             <div class="row justify-content-center">
-              <h1>Lista de productos</h1>
+              <h1>Products list</h1>
               <table class="table">
                 <thead class="thead-dark">
->>>>>>> develop
                   <tr>
-                    <th scope="col">producto#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Escoger</th>
+                    <th scope="col">product#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">choose</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -108,21 +80,11 @@
         </div>
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group">
-<<<<<<< HEAD
             <label for="">Products choosen</label>
-            <input type="number" readonly name="productos" class="form-control" value="0">
-          </div>
-          <div class="form-group">
-            <label for="">Value sale</label>
-            <input type="number" readonly name="valor-venta" class="form-control" value="0">
-          </div>
-          <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Sale !!!</button>
-=======
-            <label for="">Productos escogidos</label>
             <input id="chosenProducts" type="number" readonly name="numero-productos" class="form-control" value="0">
           </div>
           <div class="form-group">
-            <label for="">Valor venta</label>
+            <label for="">Value sale</label>
             <input id="totalSale" type="number" readonly name="valor-venta" class="form-control" value="0">
           </div>
           <div class="form-group">
@@ -135,15 +97,14 @@
           </div>
           <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Vender !!!</button>
           <button type="reset" name="button" class="btn btn-primary btn-lg btn-block">Realizar nueva venta</button>
->>>>>>> develop
         </form>
         <br>
       </div>
       <script src="../../view/js/seller/makeSale.js" language="javascript"></script>
     <?php else: ?>
       <div class="alert alert-info" role="alert">
-        No estas trabajando en esta temporada <br>
-        Opcion no disponible
+        You are not working this season <br>
+            Option not available
       </div>
     <?php endif; ?>
   </body>

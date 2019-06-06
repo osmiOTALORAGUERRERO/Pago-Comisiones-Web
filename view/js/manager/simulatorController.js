@@ -34,11 +34,11 @@ selectSeasons.onchange = () => {
                 }
                 contentSeason += '</select>'
                 contentSeason += '</div>'
-                if (i >= jsonRes.coordinators.length - 1) {
-                  distribution = parseInt(jsonRes['number-sellers']) - counter
-                }else{
-                  counter += distribution
-                }
+              }
+              if (i >= jsonRes.coordinators.length - 1) {
+                distribution = parseInt(jsonRes['number-sellers']) - counter
+              }else{
+                counter += distribution
               }
             contentSeason += '</div>'
           }
