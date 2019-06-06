@@ -31,10 +31,19 @@
       return $result;
     }
     public function selectSalesBySeller($idSeller){
-
     }
     public function selectSumTotalBySeller($idSeller){
-
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT SUM(total_sale) AS TotalSum FROM Sales WHERE id_seller = :id_seller';
+      $numberSale = $dataBase -> executeQuery($sql, array(':id_seller'=>$idSeller));
+      return $numberSale[0]['TotalSum'];
+    }
+    public function selectSalesNumber($idSeller)
+    {
+      $dataBase = new DataBaseConection();
+      $sql = 'SELECT COUNT(*) AS TotalCount FROM Sales WHERE id_seller = :id_seller';
+      $numberSale = $dataBase -> executeQuery($sql, array(':id_seller'=>$idSeller));
+      return $numberSale[0]['TotalCount'];
     }
     public function getLastNumberSale()
     {
