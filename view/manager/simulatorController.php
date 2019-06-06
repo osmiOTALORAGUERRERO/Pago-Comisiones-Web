@@ -52,9 +52,9 @@
           <?php if (!$active): ?>
             <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
               <div id="body-season" class="">
-                <label for="Mes">Temporada que desea ejecutar para la simulacion:</label>
+                <label for="Mes">Season what run for the simulation:</label>
                 <select id="seasons" class="form-control" name="season">
-                  <option disabled selected>Selecciona una opción</option>
+                  <option disabled selected>Choose an option</option>
                   <?php
                   for ($i=0; $i < count($seasons); $i++) {
                     echo '<option value="'.$seasons[$i] -> getId().'">'.$seasons[$i] -> getSeason().' -> '.$seasons[$i] -> getMonth().'</option>';
@@ -67,24 +67,24 @@
               </div>
               <br>
             <input type="hidden" name="control" value="start">
-            <button type="submit" class="btn btn-primary" name="button">Iniciar simulacion</button>
+            <button type="submit" class="btn btn-primary" name="button">Start simulation</button>
           </form>
           <?php else: ?>
             <div class="container">
               <div class="row justify-content-center">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item active">Mes: <?php echo $seasonActive -> getMonth(); ?></li>
-                  <li class="list-group-item">Festividad: <?php echo $seasonActive -> getSeason(); ?></li>
-                  <li class="list-group-item">Numero de vendedores: <?php echo $seasonActive -> getNumberSellers(); ?></li>
-                  <li class="list-group-item">Porcentaje de productos: <?php echo $seasonActive -> getPorcentageProducts(); ?></li>
-                  <li class="list-group-item">En ejecucion</li>
+                  <li class="list-group-item active">Month: <?php echo $seasonActive -> getMonth(); ?></li>
+                  <li class="list-group-item">Festivity: <?php echo $seasonActive -> getSeason(); ?></li>
+                  <li class="list-group-item">Number el seller: <?php echo $seasonActive -> getNumberSellers(); ?></li>
+                  <li class="list-group-item">Percent of products: <?php echo $seasonActive -> getPorcentageProducts(); ?></li>
+                  <li class="list-group-item">In execution</li>
                 </ul>
               </div><br>
               <div class="row justify-content-center">
                 <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
                   <input type="hidden" name="season" value=<?php echo $seasonActive -> getId(); ?>>
                   <input type="hidden" name="control" value="end">
-                  <button type="submit" class="btn btn-primary" name="button">Terminar Temporada</button>
+                  <button type="submit" class="btn btn-primary" name="button">End season</button>
                 </form>
               </div>
             </div>

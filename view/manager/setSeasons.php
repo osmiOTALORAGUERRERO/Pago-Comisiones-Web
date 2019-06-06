@@ -50,7 +50,7 @@
         <div class="row justify-content-center">
           <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
             <div class="form-group">
-              <label for="">Mes</label>
+              <label for="">Month</label>
               <select class="form-control" name="mes" required>
                 <?php for ($i=0; $i < count($months); $i++) : ?>
                   <option value=<?php echo $months[$i]->getId(); ?>><?php echo $months[$i]->getMonth(); ?></option>
@@ -58,16 +58,16 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="">Festividad</label>
+              <label for="">Festivity</label>
               <input type="text" class="form-control" name="festividad" value="" required>
             </div>
             <div class="form-group">
-              <label for="">Numero de Empleados</label>
+              <label for="">Number of employees</label>
               <input type="number" class="form-control" name="numeroEmpleados" min="1" value="" required>
             </div>
             <div class="form-group">
-              <label for="">Porcentaje de productos de temporada</label>
-              <p>Si aumenta el precio escribe el numero normal, si descuenta el precio usa el <b>signo "-"</b></p>
+              <label for="">Percent of products of season</label>
+              <p>If the price increase write the normal number, if discount the price use the <b>sign "-"</b></p>
               <input type="number" name="porcentajeProductos" class="form-control" value="" required>
             </div>
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Set seasons</button>

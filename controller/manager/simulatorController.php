@@ -36,7 +36,7 @@ error_reporting(-1);
           }
         }
         $seasonDao -> updateSeaosonToActive($seasonChoose, 1);
-        $info = 'Temporada escojida en ejecucion';
+        $info = 'season chossen in performance';
         $active = true;
       } else {
         $saleDAO = new SaleDAO();
@@ -68,7 +68,7 @@ error_reporting(-1);
     if($seasonActive == null){
       $seasons = $seasonDao -> selectSeasonsSet();
     }else {
-      $info = 'Hay una temporada activa';
+      $info = 'there is an active season';
       $active = true;
     }
   } else {

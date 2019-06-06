@@ -23,10 +23,10 @@
             $_SESSION['emailSeller'] = $email;
             header('location: ../seller/home.php');
           }else {
-            $error .= '<i>Contraseña incorrecta</i>';
+            $error .= '<i>wrong password</i>';
           }
       }else {
-        $error .= '<i>El vendedor no existe</i>';
+        $error .= '<i>this seller doesn`t exist</i>';
       }
     }
   }

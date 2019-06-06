@@ -24,11 +24,11 @@
             $_SESSION['emailManager'] = $email;
             header('location: ../manager/home.php');
           }else {
-            $error .= '<i>Password incorrecto</i>';
+            $error .= '<i>Wrong Password </i>';
           }
         }
       }else {
-        $error .= '<i>Este gerente no existe</i>';
+        $error .= '<i>this manager doesn`t exist</i>';
       }
     }
   }

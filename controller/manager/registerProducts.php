@@ -14,9 +14,9 @@ if (isset($_SESSION['emailManager'])) {
     $product -> setCategory($_POST['category']);
     $result = $productDAO -> insertProduct($product);
     if ($result != false) {
-      $message ='registro Exitoso';
+      $message ='register successful';
     }else {
-     $message= ' el registro no se ejecuto correctamente';
+     $message= ' the register couldn`t be done';
     }
   }
 } else {

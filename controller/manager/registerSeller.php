@@ -18,9 +18,9 @@ error_reporting(-1);
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $sellerDAO = new sellerDAO();
       if ($sellerDAO -> insertSeller($seller, $password)) {
-        $message ='registro Exitoso';
+        $message ='register successful';
       }else {
-        $message= ' el registro no se ejecuto correctamente';
+        $message= ' the register couldn`t be done';
       }
     }
   } else {

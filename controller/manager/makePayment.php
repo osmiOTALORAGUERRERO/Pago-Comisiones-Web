@@ -17,9 +17,9 @@
       $seller -> setLastCommission($_POST['commission']);
       $result = $sellerDao -> insertPayment($seller);
       if($result != false){
-        $info = '<i>Pago realizado exitosamente</i>';
+        $info = '<i>Payment could be done successful</i>';
       }else {
-        $info = '<i>No se pudo realizar el pago</i>';
+        $info = '<i>Payment couldn`t be done</i>';
       }
     }
     $sellers = $sellerDao -> selectSellersActiveSeason();

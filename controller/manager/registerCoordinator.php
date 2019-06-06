@@ -13,9 +13,9 @@
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $coordinatorDAO = new coordinatorDAO();
       if ($coordinatorDAO -> insertCoordinator($coordinator, $password)) {
-        $message ='registro Exitoso';
+        $message ='register successful';
       }else {
-        $message= ' el registro no se ejecuto correctamente';
+        $message= ' the register couldn`t be done';
       }
     }
   } else {
