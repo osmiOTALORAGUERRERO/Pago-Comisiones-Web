@@ -41,7 +41,9 @@
       }
       $sql = 'SELECT name FROM Coordinator WHERE id_coordinator = :id_coordinator';
       $result = $dataBase -> executeQuery($sql, array(':id_coordinator'=>$result[0]['id_coordinator']));
-      $seller -> setCoordinator($result[0]['name']);
+      if ($result != false) {
+        $seller -> setCoordinator($result[0]['name']);
+      }
       return $seller;
     }
     public function selectPasswordById($id='')

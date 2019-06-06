@@ -35,47 +35,48 @@
         <h1>Venta</h1>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <h3>Productos</h3>
-      </div>
-      <div class="row">
+    <?php if ($active): ?>
+      <div class="container">
+        <div class="row">
+          <h3>Productos</h3>
+        </div>
+        <div class="row">
 
-        <div class="container">
-          <div class="row justify-content-center">
-            <h1>Lista de productos</h1>
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">producto#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Categoria</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">Escoger</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php for ($i=0; $i < count($products); $i++) :?>
+          <div class="container">
+            <div class="row justify-content-center">
+              <h1>Lista de productos</h1>
+              <table class="table">
+                <thead class="thead-dark">
                   <tr>
-                    <td><?php echo $i+1; ?></td>
-                    <td><?php echo $products[$i] ->getProduct(); ?></td>
-                    <td><?php echo $products[$i] ->getCategory(); ?></td>
-                    <td><?php echo $products[$i] ->getPrice(); ?></td>
-                    <td> <input type="button" class="add" name="" value="Add"> </td>
+                    <th scope="col">producto#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Escoger</th>
                   </tr>
-                <?php endfor; ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php for ($i=0; $i < count($products); $i++) :?>
+                    <tr>
+                      <td><?php echo $i+1; ?></td>
+                      <td><?php echo $products[$i] ->getProduct(); ?></td>
+                      <td><?php echo $products[$i] ->getCategory(); ?></td>
+                      <td><?php echo $products[$i] ->getPrice(); ?></td>
+                      <td> <input type="button" class="add" name="" value="Add"> </td>
+                    </tr>
+                  <?php endfor; ?>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
       <div class="container">
         <div class="row">
           <h3>Realizar venta</h3>
         </div>
         <div id="info" class="" role="alert">
-          
+
         </div>
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group">
@@ -99,6 +100,12 @@
         </form>
         <br>
       </div>
-    <script src="../../view/js/seller/makeSale.js" language="javascript"></script>
+      <script src="../../view/js/seller/makeSale.js" language="javascript"></script>
+    <?php else: ?>
+      <div class="alert alert-info" role="alert">
+        No estas trabajando en esta temporada <br>
+        Opcion no disponible
+      </div>
+    <?php endif; ?>
   </body>
 </html>
