@@ -23,9 +23,9 @@
         <div class="col col-md-auto">
           <a class="btn p-3 mb-2 bg-primary text-dark" href="controller/session/manager.php">Manager</a>
         </div>
-        <div class="col col-md-auto">
+        <!-- <div class="col col-md-auto">
           <a class="btn p-3 mb-2 bg-primary text-dark" href="controller/session/coordinator.php">Coordinator</a>
-        </div>
+        </div> -->
         <div class="col col-md-auto">
           <a class="btn p-3 mb-2 bg-primary text-dark" href="controller/session/seller.php">Seller</a>
         </div>
