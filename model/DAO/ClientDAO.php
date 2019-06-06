@@ -78,9 +78,20 @@
       }
       return $cliente;
     }
-    public function selectClients($value='')
+    public function selectClients()
     {
-     // code...
+      $dataBase = new DataBaseConection();
+      $result = $dataBase -> executeQuery('SELECT * FROM Clients');
+      $clients = array();
+      if ($result != false) {
+        for ($i=0; $i < count($result); $i++) {
+          $client = new client();
+          $client -> setNit($result[$i]['nit_client']);
+          $client -> setName($result[$i]['name']);
+          array_push($clients, $client);
+        }
+      }
+      return $clients;
     }
   }
 
