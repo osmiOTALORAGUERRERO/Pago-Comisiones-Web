@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Bienvenido</a>
+        <a class="navbar-brand" href="#">Welcome</a>
       </nav>
     </header>
     <div class="container">
