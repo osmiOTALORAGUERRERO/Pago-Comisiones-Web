@@ -34,11 +34,11 @@
         <h1>Information</h1>
       </div>
       <div class="row">
-        <ul>
-          <li>Name: <?php //nombre vendedor ?></li>
-          <li>Email: <?php //correo vendedor?></li>
-          <li>Position: <?php //Cargo vendedor ?></li>
-          <li>Coordinator: <?php //Coordinador asociado al vendedor?></li>
+        <ul class="list-group">
+          <li class="list-group-item">Name: <?php echo $seller->getName(); ?></li>
+          <li class="list-group-item">Email: <?php echo $seller->getEmail(); ?></li>
+          <li class="list-group-item">Job: <?php echo $seller->getFunctions(); ?></li>
+          <li class="list-group-item">Coordinator: <?php echo $seller->getCoordinator(); ?></li>
         </ul>
       </div>
     </div>

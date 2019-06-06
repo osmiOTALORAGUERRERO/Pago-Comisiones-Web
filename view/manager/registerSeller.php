@@ -42,12 +42,12 @@
       <div class="row justify-content-center">
         <h1>Register seller</h1>
       </div>
+      <?php if (!empty($message)): ?>
+        <div class="alert alert-info" role="alert">
+          <?php echo $message; ?>
+        </div>
+      <?php endif; ?>
       <div class="row justify-content-center">
-        <?php if (!empty($message)): ?>
-          <div class="alert alert-info" role="alert">
-            <?php echo $message; ?>
-          </div>
-        <?php endif; ?>
         <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
           <div class="form-group row">
             <label for="name">Name</label>

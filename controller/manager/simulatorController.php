@@ -5,9 +5,11 @@ error_reporting(-1);
   include_once '../../model/DAO/SeasonDAO.php'; //includes del modelo necesarios para las funcionalidades
   include_once '../../model/DAO/CoordinatorDAO.php';
   include_once '../../model/DAO/SellerDAO.php';
+  include_once '../../model/DAO/SaleDAO.php';
   include_once '../../model/transferObject/Season.php';
   include_once '../../model/transferObject/Coordinator.php';
   include_once '../../model/transferObject/Seller.php';
+  include_once '../../model/transferObject/Sale.php';
 
   $seasons = array();
   $coordinators = array();
@@ -24,17 +26,27 @@ error_reporting(-1);
 
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-      $sellersByCoordinator = $_POST['seller'];
-      $seasonChoose = $_POST['season'];
-      for ($i=0; $i < count($sellersByCoordinator); $i++) {
-        for ($j=0; $j < count($sellersByCoordinator[$i]); $j++) {
-          $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
-          $seasonDao -> insertSeasonBySeller($sellersByCoordinator[$i][$j], $seasonChoose);
+      if ($_POST['control'] == 'start') {
+        $sellersByCoordinator = $_POST['seller'];
+        $seasonChoose = $_POST['season'];
+        for ($i=0; $i < count($sellersByCoordinator); $i++) {
+          for ($j=0; $j < count($sellersByCoordinator[$i]); $j++) {
+            $result = $sellerDao -> updateCoordinatorSeller(intval($sellersByCoordinator[$i][$j]), intval($coordinators[$i]->getId()));
+            $result2 = $seasonDao -> insertSeasonBySeller(intval($seasonChoose), intval($sellersByCoordinator[$i][$j]));
+          }
+        }
+        $seasonDao -> updateSeaosonToActive($seasonChoose, 1);
+        $info = 'season chossen in performance';
+        $active = true;
+      } else {
+        $saleDAO = new SaleDAO();
+        $sellersActive = $sellerDao -> selectSellersActiveSeason();
+        $seasonDao -> updateSeaosonToActive($_POST['season'], 0);
+        $seasonDao -> deleteSeasonsBySeller($_POST['season']);
+        for ($i=0; $i < count($sellersActive); $i++) {
+          $saleDAO -> deleteSales($sellersActive[$i] -> getId());
         }
       }
-      $seasonDao -> updateSeaosonToActive($seasonChoose);
-      $info = 'season chossen in performance';
-      $active = true;
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['idSeason'])) {
       $seasonChoose = $_GET['idSeason'];
 
@@ -51,14 +63,13 @@ error_reporting(-1);
       }
       echo json_encode(array('sellers'=>$sellersResponse, 'coordinators'=>$coordinatorsResponse, 'number-sellers'=>$season->getNumberSellers(), 'success'=>true));
       return;
-    } else {
-      $seasonActive = $seasonDao -> selectActiveSeason();
-      if($seasonActive == null){
-        $seasons = $seasonDao -> selectSeasons();
-      }else {
-        $info = 'there is an active season';
-        $active = true;
-      }
+    }
+    $seasonActive = $seasonDao -> selectActiveSeason();
+    if($seasonActive == null){
+      $seasons = $seasonDao -> selectSeasonsSet();
+    }else {
+      $info = 'there is an active season';
+      $active = true;
     }
   } else {
     header('location: ../../index.php');

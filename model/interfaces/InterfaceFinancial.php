@@ -4,7 +4,8 @@
    */
   interface InterfaceFinancial
   {
-    // code...
+    public function selectFinancialByEmail($email);
+    public function selectPasswordById($idFinancial);
   }
 
 ?>
