@@ -33,63 +33,75 @@
       <div class="row justify-content-center">
         <h1>Registrar Cliente</h1>
       </div>
-      <div class="row justify-content-center">
-        <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
-          <div class="form-group row">
-            <label for="nit">Numero de identificacion</label>
-            <input type="number" name="nit" class="form-control" required>
+      <?php if ($active): ?>
+        <?php if (!empty($info)): ?>
+          <div class="alert alert-info" role="alert">
+            <?php echo $info; ?>
           </div>
-          <div class="form-group row">
-            <label for="">Nombre</label>
-            <input type="text" name="nombre" class="form-control" required>
-          </div>
-          <div class="form-group row">
-            <label for="">correos</label>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Correo 1</span>
-              </div>
-              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+        <?php endif; ?>
+        <div class="row justify-content-center">
+          <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
+            <div class="form-group row">
+              <label for="nit">Numero de identificacion</label>
+              <input type="number" name="nit" class="form-control" required>
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Correo 2</span>
-              </div>
-              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <div class="form-group row">
+              <label for="">Nombre</label>
+              <input type="text" name="nombre" class="form-control" required>
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Correo 3</span>
+            <div class="form-group row">
+              <label for="">correos</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Correo 1</span>
+                </div>
+                <input type="email" class="form-control" name="email[0]" required>
               </div>
-              <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="">Numeros de contacto</label>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">numero 1</span>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Correo 2</span>
+                </div>
+                <input type="email" class="form-control" name="email[1]">
               </div>
-              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">numero 2</span>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Correo 3</span>
+                </div>
+                <input type="email" class="form-control" name="email[2]">
               </div>
-              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">numero 3</span>
+            <div class="form-group row">
+              <label for="">Numeros de contacto</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">numero 1</span>
+                </div>
+                <input type="number" class="form-control" name="number[0]" required>
               </div>
-              <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">numero 2</span>
+                </div>
+                <input type="number" class="form-control" name="number[1]">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">numero 3</span>
+                </div>
+                <input type="number" class="form-control" name="number[2]">
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <button type="submit" name="registrar" class="btn btn-primary btn-lg btn-block">Registrar</button>
-          </div>
-        </form>
-      </div>
+            <div class="form-group row">
+              <button type="submit" name="registrar" class="btn btn-primary btn-lg btn-block">Registrar</button>
+            </div>
+          </form>
+        </div>
+      <?php else: ?>
+        <div class="alert alert-info" role="alert">
+          No estas trabajando en esta temporada <br>
+          Opcion no disponible
+        </div>
+      <?php endif; ?>
     </div>
   </body>
 </html>

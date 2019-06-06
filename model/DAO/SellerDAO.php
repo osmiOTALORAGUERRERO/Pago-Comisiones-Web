@@ -28,13 +28,21 @@
     public function selectSellerByEmail($email)
     {
       $dataBase = new DataBaseConection();
-      $sql = 'SELECT id_seller FROM Sellers WHERE email = :email';
+      $sql = 'SELECT * FROM Sellers WHERE email = :email';
       $result = $dataBase -> executeQuery($sql, array(':email'=>$email));
 
       $seller = null;
       if($result != false){
         $seller = new Seller();
         $seller -> setId($result[0]['id_seller']);
+        $seller -> setName($result[0]['name']);
+        $seller -> setEmail($result[0]['email']);
+        $seller -> setFunctions($result[0]['functions']);
+      }
+      $sql = 'SELECT name FROM Coordinator WHERE id_coordinator = :id_coordinator';
+      $result = $dataBase -> executeQuery($sql, array(':id_coordinator'=>$result[0]['id_coordinator']));
+      if ($result != false) {
+        $seller -> setCoordinator($result[0]['name']);
       }
       return $seller;
     }
@@ -118,7 +126,7 @@
         ':id_seller'=>$seller->getId(),
         ':id_financial'=>1
       ));
-      
+
       return $result;
     }
 
@@ -141,9 +149,13 @@
     public function updateCoordinatorSeller($idSeller, $idCoordinator)
     {
       $dataBase = new DataBaseConection();
-      $sql =  'UPDATE Sellers SET id_coordinator = :id_coordinator WHERE id_seller= :id_seller';
+      $sql =  'UPDATE Sellers SET id_coordinator = :id_coordinator WHERE id_seller = :id_seller';
 
-      $result = $dataBase->executeUpdate($sql, array(':id_coordinator'=>$idCoordinator, ':id_seller'=>$idSeller));
+      $result = $dataBase->executeUpdate($sql, array(
+        ':id_coordinator'=>$idCoordinator,
+        ':id_seller'=>$idSeller
+      ));
+
       return $result;
     }
   }

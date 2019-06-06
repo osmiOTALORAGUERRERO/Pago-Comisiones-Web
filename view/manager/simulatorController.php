@@ -43,11 +43,11 @@
       <div class="row justify-content-center">
         <h1>Controlador del simulador</h1>
       </div>
-      <?php if(!empty($info)): ?>
-        <div class="alert alert-info" role="alert">
-          <?php echo $info; ?>
-        </div>
-      <?php endif; ?>
+      <div id="info" class="alert alert-info" role="alert">
+        <?php if(!empty($info)): ?>
+            <?php echo $info; ?>
+        <?php endif; ?>
+      </div>
       <div class="row justify-content-center">
           <?php if (!$active): ?>
             <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
@@ -65,6 +65,7 @@
               <div id="body" class="">
 
               </div>
+              <br>
             <input type="hidden" name="control" value="start">
             <button type="submit" class="btn btn-primary" name="button">Iniciar simulacion</button>
           </form>
@@ -78,9 +79,10 @@
                   <li class="list-group-item">Porcentaje de productos: <?php echo $seasonActive -> getPorcentageProducts(); ?></li>
                   <li class="list-group-item">En ejecucion</li>
                 </ul>
-              </div>
+              </div><br>
               <div class="row justify-content-center">
                 <form class="form" action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post">
+                  <input type="hidden" name="season" value=<?php echo $seasonActive -> getId(); ?>>
                   <input type="hidden" name="control" value="end">
                   <button type="submit" class="btn btn-primary" name="button">Terminar Temporada</button>
                 </form>

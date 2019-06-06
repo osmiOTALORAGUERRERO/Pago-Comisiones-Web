@@ -4,9 +4,9 @@
    */
   class Financial
   {
-    $id;
-    $name;
-    $email;
+    private $id;
+    private $name;
+    private $email;
     function __construct()
     {
       // code...

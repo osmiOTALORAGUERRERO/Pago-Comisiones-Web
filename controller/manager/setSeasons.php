@@ -15,6 +15,7 @@ if (isset($_SESSION['emailManager'])) {
     $season -> setSeason($_POST['festividad']);
     $season -> setNumberSellers($_POST['numeroEmpleados']);
     $season -> setPorcentageProducts($_POST['porcentajeProductos']);
+    $season -> setActive(0);
     $result = $seasonDAO -> updateSeason($season);
     if ($result != false) {
       $message = 'Temporada registrada exitosamente';

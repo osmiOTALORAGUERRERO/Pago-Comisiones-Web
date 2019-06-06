@@ -7,7 +7,6 @@ include_once '../../model/transferObject/Product.php';
 $message = '';
 if (isset($_SESSION['emailManager'])) {
   if($_SERVER["REQUEST_METHOD"] == 'POST'){
-    echo "string";
     $product = new Product();
     $productDAO = new ProductDAO();
     $product -> setProduct($_POST['name']);
