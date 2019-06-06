@@ -51,6 +51,12 @@
       $numberSale = $dataBase -> executeQuery('SELECT MAX(number_sale) AS lastId FROM Sales');
       return $numberSale[0]['lastId'];
     }
+    public function deleteSales($idSeller='')
+    {
+      $dataBase = new DataBaseConection();
+      $result = $dataBase -> executeDelete('DELETE FROM Sales WHERE id_seller =:id_seller', array(':id_seller'=>$idSeller));
+      return $result;
+    }
   }
 
 ?>

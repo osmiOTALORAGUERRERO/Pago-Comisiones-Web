@@ -27,7 +27,7 @@
     </header>
     <div class="container">
         <div class="row justify-content-center">
-          <h1>Establecer teporadas</h1>
+          <h1>Set commissions</h1>
         </div>
         <?php if (!empty($message)): ?>
           <div class="alert alert-info" role="alert">
@@ -55,7 +55,7 @@
               <label for="">percentage Commission</label>
               <input id="percentageCommission" type="number" class="form-control" name="percentageCommission" min="0" max="100" value="" required>
             </div>
-            <button id='calculateCommission' type="button" name="button" class="btn btn-primary btn-lg btn-block">Asignar temporada</button>
+            <button id='calculateCommission' type="button" name="button" class="btn btn-primary btn-lg btn-block">set commission</button>
           </form>
         </div> <br>
         <div class="row justify-content-center">

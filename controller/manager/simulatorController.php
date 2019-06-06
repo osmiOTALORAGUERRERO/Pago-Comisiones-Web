@@ -5,9 +5,11 @@ error_reporting(-1);
   include_once '../../model/DAO/SeasonDAO.php'; //includes del modelo necesarios para las funcionalidades
   include_once '../../model/DAO/CoordinatorDAO.php';
   include_once '../../model/DAO/SellerDAO.php';
+  include_once '../../model/DAO/SaleDAO.php';
   include_once '../../model/transferObject/Season.php';
   include_once '../../model/transferObject/Coordinator.php';
   include_once '../../model/transferObject/Seller.php';
+  include_once '../../model/transferObject/Sale.php';
 
   $seasons = array();
   $coordinators = array();
@@ -37,8 +39,13 @@ error_reporting(-1);
         $info = 'Temporada escojida en ejecucion';
         $active = true;
       } else {
+        $saleDAO = new SaleDAO();
+        $sellersActive = $sellerDao -> selectSellersActiveSeason();
         $seasonDao -> updateSeaosonToActive($_POST['season'], 0);
         $seasonDao -> deleteSeasonsBySeller($_POST['season']);
+        for ($i=0; $i < count($sellersActive); $i++) {
+          $saleDAO -> deleteSales($sellersActive[$i] -> getId());
+        }
       }
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['idSeason'])) {
       $seasonChoose = $_GET['idSeason'];

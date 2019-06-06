@@ -8,7 +8,6 @@ selectSeasons.onchange = () => {
     url: 'simulatorController.php',
     type: 'GET',
     success: function (res) {
-      alert(res)
       let jsonRes = JSON.parse(res)
       divSeason.innerHTML = ''
       info.innerHTML = ''
