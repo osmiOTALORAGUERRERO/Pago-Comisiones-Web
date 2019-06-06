@@ -9,46 +9,46 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span>Compañia</a>
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span>Company</a>
 
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto nav-tabs">
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registerSeller.php">Registrar vendedor <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="registerSeller.php">Register seller <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registerCoordinator.php">Registrar coordinador <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="registerCoordinator.php">Register coordinator <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="makePayment.php">Realizar pago</a>
+              <a class="nav-item nav-link" href="makePayment.php">Make payments</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="registerProducts.php">Registrar productos</a>
+              <a class="nav-item nav-link" href="registerProducts.php">Register products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="setSeasons.php">Establecer temporadas</a>
+              <a class="nav-item nav-link" href="setSeasons.php">Set seller</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link" href="simulatorController.php">Control simulador</a>
+              <a class="nav-item nav-link" href="simulatorController.php">Control simulator</a>
             </li>
           </ul>
         </div>
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <a class="nav-item nav-link" href="../session/logout.php">Salir</a>
+          <a class="nav-item nav-link" href="../session/logout.php">Leave</a>
         </ul>
       </nav>
     </header>
 
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Compañia Lista Vendedores</h1>
+        <h1>Company sellers list</h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">vendedor#</th>
-              <th scope="col">Nombre</th>
+              <th scope="col">Sellers#</th>
+              <th scope="col">Name</th>
               <th scope="col">Email</th>
-              <th scope="col">Celular</th>
+              <th scope="col">Cell phone</th>
             </tr>
           </thead>
           <tbody>
@@ -68,14 +68,14 @@
 
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Compañia Lista  Coordinadores</h1>
+        <h1>Company Coordinators list  </h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">coordinador#</th>
-              <th scope="col">Nombre</th>
+              <th scope="col">coordinator#</th>
+              <th scope="col">Name</th>
               <th scope="col">Email</th>
-              <th scope="col">Celular</th>
+              <th scope="col">Cell phone</th>
             </tr>
           </thead>
           <tbody>
