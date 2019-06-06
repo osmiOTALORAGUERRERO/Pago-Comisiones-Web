@@ -26,7 +26,7 @@
           </ul>
         </div>
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <a class="nav-item nav-link" href="../session/logout.php">Salir</a>
+          <a class="nav-item nav-link" href="../session/logout.php">logout</a>
         </ul>
       </nav>
     </header>
